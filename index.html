@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Abuzar — Data Analyst</title>
+    <meta name="description" content="Ahmed Abuzar - Data Analyst. End-to-end data: cleaning, modeling, dashboards, and actionable insights.">
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <canvas id="particle-canvas" class="particle-bg"></canvas>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="nav-pill fade-in">
+            <div class="nav-inner">
+                <a href="#top" class="nav-logo font-mono uppercase">
+                    <span class="nav-dot"></span>
+                    Ahmed Abuzar
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#about" class="font-mono">About</a></li>
+                    <li><a href="#skills" class="font-mono">Stack</a></li>
+                    <li><a href="#experience" class="font-mono">Experience</a></li>
+                    <li><a href="#work" class="font-mono">Work</a></li>
+                    <li><a href="#contact" class="font-mono">Contact</a></li>
+                </ul>
+                <a href="#contact" class="nav-contact font-mono">Get in touch</a>
+            </div>
+            <div class="nav-progress-bar"></div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="top" class="hero">
+            <div class="hero-bg-gradient"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-status fade-in-up" style="animation-delay: 0.1s;">
+                        <span class="status-badge font-mono">
+                            <span class="status-dot"></span>
+                            OPEN TO SELECT PROJECTS
+                        </span>
+                        <span class="status-location font-mono">Bengaluru, India · <span id="clock" class="text-bone">--:--:--</span></span>
+                    </div>
+                    
+                    <h1 class="hero-title fade-in-up" style="animation-delay: 0.2s;">
+                        <span class="block">Ahmed</span>
+                        <span class="block">Abuzar</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s;">
+                        <span class="text-muted">Data</span> <span class="text-bone underline-draw">Analyst</span>
+                    </p>
+                    
+                    <p class="hero-builds font-mono fade-in-up" style="animation-delay: 0.4s;">
+                        <span class="text-faint">BUILDS //</span>
+                        <span id="cycling-text" class="text-accent cycling-text">DATA VISUALIZATION</span>
+                    </p>
+
+                    <p class="hero-desc fade-in-up" style="animation-delay: 0.5s;">
+                        Information Science graduate turning marketing and business data into clear KPI dashboards and actionable insights. Skilled in data cleaning, DAX modeling, and ROI analysis.
+                    </p>
+
+                    <div class="hero-buttons fade-in-up" style="animation-delay: 0.6s;">
+                        <a href="#contact" class="btn-primary font-mono">Start a project →</a>
+                        <a href="#work" class="btn-secondary font-mono">View work</a>
+                        <div class="hero-socials font-mono text-faint">
+                            <a href="https://github.com" target="_blank">GITHUB</a>
+                            <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank">LINKEDIN</a>
+                        </div>
+                    </div>
+
+                    <dl class="hero-stats fade-in-up font-mono" style="animation-delay: 0.7s;">
+                        <div class="hero-stat">
+                            <dt class="text-faint">BASE</dt>
+                            <dd class="text-bone">2+ yrs</dd>
+                        </div>
+                        <div class="hero-stat">
+                            <dt class="text-faint">STACK</dt>
+                            <dd class="text-bone">Excel · Power BI · SQL · Python · Tableau</dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="scroll-indicator font-mono text-faint">SCROLL ↓</div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-num font-mono">00</span>
+                    <span class="section-line"></span>
+                    <span class="section-title font-mono uppercase tracking-widest">About</span>
+                </div>
+
+                <div class="about-grid fade-in">
+                    <div class="about-text">
+                        <p class="text-bone text-lg">
+                            Data Analyst with 2+ years of experience in data visualization, analytics, and marketing performance. I build the dashboards and write the queries that turn raw data into actionable insights.
+                        </p>
+                        <p class="text-muted text-lg mt-4">
+                            My foundation is in information science and problem-solving. Whether it's consolidating multi-channel datasets, tracking KPIs like Conversion Rate and ROI, or performing sentiment analysis using Python, I ensure that businesses have the data visibility they need to optimize their strategies and budgets.
+                        </p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value text-bone font-display">2<span class="text-accent">+</span></div>
+                            <div class="font-mono uppercase text-faint stat-label">Years of Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value text-bone font-display">5<span class="text-accent">+</span></div>
+                            <div class="font-mono uppercase text-faint stat-label">Core Tools</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value text-bone font-display">100<span class="text-accent">%</span></div>
+                            <div class="font-mono uppercase text-faint stat-label">Data-Driven</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value text-bone font-display">B.E.</div>
+                            <div class="font-mono uppercase text-faint stat-label">Info Science</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-num font-mono">01</span>
+                    <span class="section-line"></span>
+                    <span class="section-title font-mono uppercase tracking-widest">Stack</span>
+                </div>
+
+                <div class="skills-grid fade-in">
+                    <div class="skill-category card-hover">
+                        <div class="skill-category-header">
+                            <span class="nav-dot"></span>
+                            <h3 class="font-mono uppercase text-faint">CORE TOOLS</h3>
+                        </div>
+                        <div class="skill-tags font-mono">
+                            <span class="skill-tag">Excel</span>
+                            <span class="skill-tag">Power BI</span>
+                            <span class="skill-tag">Tableau</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Odoo CRM</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-hover">
+                        <div class="skill-category-header">
+                            <span class="nav-dot"></span>
+                            <h3 class="font-mono uppercase text-faint">DATA & ANALYTICS</h3>
+                        </div>
+                        <div class="skill-tags font-mono">
+                            <span class="skill-tag">Power Query</span>
+                            <span class="skill-tag">DAX</span>
+                            <span class="skill-tag">Data Cleaning</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">XLOOKUP</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category card-hover">
+                        <div class="skill-category-header">
+                            <span class="nav-dot"></span>
+                            <h3 class="font-mono uppercase text-faint">COMPETENCIES</h3>
+                        </div>
+                        <div class="skill-tags font-mono">
+                            <span class="skill-tag">Dashboard Design</span>
+                            <span class="skill-tag">KPI Tracking</span>
+                            <span class="skill-tag">Marketing ROI</span>
+                            <span class="skill-tag">Sentiment Analysis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category card-hover">
+                        <div class="skill-category-header">
+                            <span class="nav-dot"></span>
+                            <h3 class="font-mono uppercase text-faint">AUTOMATION</h3>
+                        </div>
+                        <div class="skill-tags font-mono">
+                            <span class="skill-tag">Make.com</span>
+                            <span class="skill-tag">Lead Routing</span>
+                            <span class="skill-tag">Email Workflows</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-num font-mono">02</span>
+                    <span class="section-line"></span>
+                    <span class="section-title font-mono uppercase tracking-widest">Experience</span>
+                </div>
+
+                <div class="timeline-container fade-in">
+                    <div class="timeline-line">
+                        <div class="timeline-line-progress"></div>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot-wrapper">
+                                <div class="timeline-dot active">
+                                    <div class="timeline-dot-ping"></div>
+                                </div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-meta font-mono">
+                                    <span class="text-accent">JAN 2026 — MAR 2026</span>
+                                    <span class="meta-separator">·</span>
+                                    <span class="text-faint">Bengaluru, India</span>
+                                </div>
+                                <h3 class="timeline-title">Digital Marketing Executive <span class="text-accent">@ Avoor Networks</span></h3>
+                                <p class="timeline-desc text-muted">
+                                    Consolidated and cleaned multi-channel campaign datasets using advanced Excel to track Conversion Rate and ROI. Built interactive Power BI dashboards for campaign monitoring. Automated workflows and lead routing using Make.com and Odoo CRM.
+                                </p>
+                                <div class="timeline-tags font-mono text-faint">
+                                    <span>Excel</span>
+                                    <span>Power BI</span>
+                                    <span>Odoo CRM</span>
+                                    <span>Make.com</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-dot-wrapper">
+                                <div class="timeline-dot inactive"></div>
+                            </div>
+                            <div class="timeline-content">
+                                <div class="timeline-meta font-mono">
+                                    <span class="text-accent">AUG 2023 — SEP 2023</span>
+                                    <span class="meta-separator">·</span>
+                                    <span class="text-faint">Bengaluru, India</span>
+                                </div>
+                                <h3 class="timeline-title text-muted">Data Science Intern <span class="text-accent">@ Cranes Varsity</span></h3>
+                                <p class="timeline-desc text-muted">
+                                    Led a Sentiment Analysis Project using ML algorithms to classify comments. Developed models in Google Colab to enhance data interpretation and support data-driven decision-making.
+                                </p>
+                                <div class="timeline-tags font-mono text-faint">
+                                    <span>Python</span>
+                                    <span>Machine Learning</span>
+                                    <span>Google Colab</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="work" class="section">
+            <div class="container">
+                <div class="flex items-end justify-between mb-12 fade-in">
+                    <div class="section-header" style="margin-bottom: 0;">
+                        <span class="section-num font-mono">03</span>
+                        <span class="section-line"></span>
+                        <span class="section-title font-mono uppercase tracking-widest">Selected Work</span>
+                    </div>
+                    <p class="max-w-md text-sm text-muted hidden-mobile">Dashboards, analytics, and data modeling.</p>
+                </div>
+
+                <div class="projects-grid fade-in">
+                    
+                    <div class="project-card interactive-card">
+                        <div class="card-glow"></div>
+                        <div class="project-card-inner">
+                            <div class="project-header">
+                                <span class="font-mono text-accent text-sm">01</span>
+                                <span class="nav-dot"></span>
+                            </div>
+                            <h3 class="project-title text-bone">FIFA Historical Analysis</h3>
+                            <p class="project-desc">Cleaned and structured World Cup data (1930–2022) using SQL. Built a Power BI dashboard with DAX measures to visualize trends.</p>
+                            
+                            <div class="project-terminal">
+                                <code class="font-mono text-accent"><span class="text-faint">$ </span>SELECT * FROM fifa_data</code>
+                                <button class="btn-copy font-mono">COPY</button>
+                            </div>
+
+                            <div class="project-tech font-mono">
+                                <span>SQL</span>
+                                <span>Power BI</span>
+                                <span>DAX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card interactive-card">
+                        <div class="card-glow"></div>
+                        <div class="project-card-inner">
+                            <div class="project-header">
+                                <span class="font-mono text-accent text-sm">02</span>
+                                <span class="nav-dot"></span>
+                            </div>
+                            <h3 class="project-title text-bone">Marketing ROI Dashboard</h3>
+                            <p class="project-desc">Analyzed campaign data to evaluate cost efficiency. Built an Excel dashboard using XLOOKUP and Pivot Tables for budget optimization.</p>
+                            
+                            <div class="project-terminal">
+                                <code class="font-mono text-accent"><span class="text-faint">$ </span>calc_roi --channel all</code>
+                                <button class="btn-copy font-mono">COPY</button>
+                            </div>
+
+                            <div class="project-tech font-mono">
+                                <span>Excel</span>
+                                <span>Pivot Tables</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card interactive-card">
+                        <div class="card-glow"></div>
+                        <div class="project-card-inner">
+                            <div class="project-header">
+                                <span class="font-mono text-accent text-sm">03</span>
+                                <span class="nav-dot"></span>
+                            </div>
+                            <h3 class="project-title text-bone">Budget Simulator</h3>
+                            <p class="project-desc">Interactive Power BI dashboard implementing What-If budget simulations to evaluate revenue and ROI impacts before execution.</p>
+                            
+                            <div class="project-terminal">
+                                <code class="font-mono text-accent"><span class="text-faint">$ </span>simulate --budget 50k</code>
+                                <button class="btn-copy font-mono">COPY</button>
+                            </div>
+
+                            <div class="project-tech font-mono">
+                                <span>Power Query</span>
+                                <span>DAX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section pb-32">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <span class="section-num font-mono">04</span>
+                    <span class="section-line"></span>
+                    <span class="section-title font-mono uppercase tracking-widest">Contact</span>
+                </div>
+
+                <h2 class="contact-title fade-in font-display">
+                    Let's build something <span class="text-accent">that lasts.</span>
+                </h2>
+                <p class="contact-desc fade-in text-muted">
+                    Data analysis, dashboards, or tracking KPIs — if it needs to be measured and optimized, let's talk. Based in Bengaluru, India.
+                </p>
+
+                <ul class="contact-list fade-in mt-16">
+                    <li>
+                        <a href="mailto:ahmedabuzar123@gmail.com" class="contact-item group">
+                            <div class="contact-left">
+                                <span class="contact-label font-mono text-faint group-hover:text-accent">EMAIL</span>
+                                <span class="contact-value text-bone font-display group-hover:text-accent">ahmedabuzar123@gmail.com</span>
+                            </div>
+                            <span class="contact-arrow font-mono text-bone group-hover:text-accent">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" class="contact-item group">
+                            <div class="contact-left">
+                                <span class="contact-label font-mono text-faint group-hover:text-accent">LINKEDIN</span>
+                                <span class="contact-value text-bone font-display group-hover:text-accent">/in/ahmed-abuzar</span>
+                            </div>
+                            <span class="contact-arrow font-mono text-bone group-hover:text-accent">→</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com" target="_blank" class="contact-item group">
+                            <div class="contact-left">
+                                <span class="contact-label font-mono text-faint group-hover:text-accent">GITHUB</span>
+                                <span class="contact-value text-bone font-display group-hover:text-accent">/github</span>
+                            </div>
+                            <span class="contact-arrow font-mono text-bone group-hover:text-accent">→</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- GSAP for advanced interactiveness -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
