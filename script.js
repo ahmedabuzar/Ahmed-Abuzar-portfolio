@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const ctx = canvas.getContext('2d');
         let width, height;
         let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
         
         function resize() {
             width = canvas.width = window.innerWidth;
@@ -158,6 +159,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         window.addEventListener('resize', resize);
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        
         resize();
         
         class Particle {
@@ -199,6 +209,25 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Draw connecting lines
             for (let i = 0; i < particles.length; i++) {
+                // Connect to mouse
+                if (mouse.x != null && mouse.y != null) {
+                    let dxMouse = particles[i].x - mouse.x;
+                    let dyMouse = particles[i].y - mouse.y;
+                    let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                    
+                    if (distMouse < mouse.radius) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = `rgba(94, 234, 212, ${0.4 * (1 - distMouse/mouse.radius)})`; // Accent color connection
+                        ctx.stroke();
+                        
+                        // Subtle repel effect
+                        particles[i].x += dxMouse * 0.02;
+                        particles[i].y += dyMouse * 0.02;
+                    }
+                }
+
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
