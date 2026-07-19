@@ -21,18 +21,6 @@
 html { scroll-behavior: smooth; font-family: var(--font-sans); background-color: var(--bg-color); color: var(--text-bone); }
 body { min-height: 100vh; overflow-x: hidden; position: relative; }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--bg-color); }
-::-webkit-scrollbar-thumb { background: var(--text-faint); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent); }
-
-/* Preloader */
-.preloader { position: fixed; inset: 0; background: var(--bg-color); z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1); }
-.preloader.hidden { transform: translateY(-100%); }
-.preloader-content { font-size: 0.85rem; margin-bottom: 0.5rem; letter-spacing: 0.3em; }
-.preloader-counter { font-size: 3rem; font-weight: 600; }
-
 /* Canvas Background */
 .particle-bg {
   position: fixed;
@@ -65,7 +53,6 @@ header { position: fixed; top: 1rem; left: 0; width: 100%; z-index: 50; display:
 @media (max-width: 768px) { .nav-links { display: none; } }
 .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.7rem; padding: 0.4rem 0.8rem; border-radius: 9999px; transition: all 0.2s; letter-spacing: 0.06em; }
 .nav-links a:hover { color: var(--text-bone); }
-.nav-links a.active { color: var(--text-bone); background: rgba(255, 255, 255, 0.1); }
 .nav-contact { text-decoration: none; color: var(--text-bone); font-size: 0.7rem; padding: 0.4rem 0.9rem; border: 1px solid var(--line-color); border-radius: 9999px; transition: all 0.2s; letter-spacing: 0.04em; }
 .nav-contact:hover { border-color: rgba(94, 234, 212, 0.6); color: var(--accent); }
 .nav-progress-bar { position: absolute; bottom: 0; left: 0; height: 1px; background: var(--accent); width: 0%; transition: width 0.1s; }

@@ -48,35 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, 2000); // Start after 2s
     }
 
-    /* Smart Header & Scroll Spy */
-    const header = document.querySelector('header');
-    
-    // Setup scroll spy for nav links
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-
-        // Scroll Spy
-        let currentSection = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            // Buffer to detect section change earlier
-            if (currentScrollY >= (sectionTop - sectionHeight / 3)) {
-                currentSection = section.getAttribute('id');
-            }
-        });
-
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href').substring(1) === currentSection) {
-                link.classList.add('active');
-            }
-        });
-    });
-
     /* 3. Mouse Glow Effect on Interactive Cards */
     const interactiveCards = document.querySelectorAll('.interactive-card');
     interactiveCards.forEach(card => {
@@ -90,38 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* 4. Advanced GSAP Scroll Animations & Preloader */
-    const preloader = document.getElementById('preloader');
-    const counter = document.getElementById('preloader-counter');
-    let count = 0;
+    /* 4. Advanced GSAP Scroll Animations */
     
-    // Disable scrolling while loading
-    document.body.style.overflow = 'hidden';
-
-    let interval = setInterval(() => {
-        count += Math.floor(Math.random() * 15) + 5;
-        if (count >= 100) {
-            count = 100;
-            clearInterval(interval);
-            
-            if(counter) counter.textContent = count + '%';
-            
-            setTimeout(() => {
-                if(preloader) preloader.classList.add('hidden');
-                document.body.style.overflow = '';
-                
-                // Hero Section Initial Animation (Starts AFTER preloader)
-                const heroTl = gsap.timeline();
-                heroTl.set('.fade-in-up', { autoAlpha: 1 }); // Make elements visible for GSAP
-                heroTl.fromTo('.fade-in-up', 
-                    { y: 30, opacity: 0, filter: 'blur(8px)' },
-                    { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, stagger: 0.1, ease: 'power3.out', delay: 0.2 }
-                );
-            }, 400); // short delay at 100% before sliding up
-        } else {
-            if(counter) counter.textContent = count + '%';
-        }
-    }, 60);
+    // Hero Section Initial Animation
+    const heroTl = gsap.timeline();
+    
+    heroTl.set('.fade-in-up', { autoAlpha: 1 }); // Make elements visible for GSAP
+    heroTl.fromTo('.fade-in-up', 
+        { y: 30, opacity: 0, filter: 'blur(8px)' },
+        { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, stagger: 0.1, ease: 'power3.out', delay: 0.2 }
+    );
 
     // Fade-in elements on scroll
     gsap.utils.toArray('.fade-in').forEach(elem => {
@@ -196,16 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* 7. Canvas Particle Background (3D Starfield) */
+    /* 7. Canvas Particle Background */
     const canvas = document.getElementById('particle-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
         let width, height;
-        let stars = [];
-        const numStars = 1000;
-        let mouseX = 0;
-        let mouseY = 0;
-        let mouseActive = false;
+        let particles = [];
+        let mouse = { x: null, y: null, radius: 150 };
         
         function resize() {
             width = canvas.width = window.innerWidth;
@@ -214,70 +160,88 @@ document.addEventListener('DOMContentLoaded', () => {
         
         window.addEventListener('resize', resize);
         window.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX - width / 2) * 0.05;
-            mouseY = (e.clientY - height / 2) * 0.05;
-            mouseActive = true;
+            mouse.x = e.x;
+            mouse.y = e.y;
         });
         window.addEventListener('mouseout', () => {
-            mouseActive = false;
+            mouse.x = null;
+            mouse.y = null;
         });
         
         resize();
         
-        class Star {
+        class Particle {
             constructor() {
-                this.x = (Math.random() - 0.5) * width * 2;
-                this.y = (Math.random() - 0.5) * height * 2;
-                this.z = Math.random() * width;
-                this.pz = this.z;
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.radius = Math.random() * 1.5;
             }
             
             update() {
-                this.z = this.z - 2; // speed of stars
-                if (this.z <= 0) {
-                    this.z = width;
-                    this.x = (Math.random() - 0.5) * width * 2;
-                    this.y = (Math.random() - 0.5) * height * 2;
-                    this.pz = this.z;
-                }
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > height) this.vy = -this.vy;
             }
             
             draw() {
-                let x, y, s;
-                let offsetX = mouseActive ? mouseX * (this.z / width) : 0;
-                let offsetY = mouseActive ? mouseY * (this.z / width) : 0;
-
-                x = (this.x - offsetX) / this.z * width + width / 2;
-                y = (this.y - offsetY) / this.z * width + height / 2;
-                s = (1 - this.z / width) * 2.5;
-
                 ctx.beginPath();
-                ctx.arc(x, y, s, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(248, 252, 251, ${1 - this.z / width})`;
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(248, 252, 251, 0.4)'; // text-bone color
                 ctx.fill();
             }
         }
         
-        for (let i = 0; i < numStars; i++) {
-            stars.push(new Star());
+        for (let i = 0; i < 150; i++) {
+            particles.push(new Particle());
         }
         
         function animate() {
             ctx.clearRect(0, 0, width, height);
             
-            // Add subtle rotation
-            ctx.save();
-            ctx.translate(width / 2, height / 2);
-            let time = Date.now() * 0.00005;
-            ctx.rotate(time);
-            ctx.translate(-width / 2, -height / 2);
-
-            stars.forEach(s => {
-                s.update();
-                s.draw();
+            particles.forEach(p => {
+                p.update();
+                p.draw();
             });
             
-            ctx.restore();
+            // Draw connecting lines
+            for (let i = 0; i < particles.length; i++) {
+                // Connect to mouse
+                if (mouse.x != null && mouse.y != null) {
+                    let dxMouse = particles[i].x - mouse.x;
+                    let dyMouse = particles[i].y - mouse.y;
+                    let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+                    
+                    if (distMouse < mouse.radius) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = `rgba(94, 234, 212, ${0.4 * (1 - distMouse/mouse.radius)})`; // Accent color connection
+                        ctx.stroke();
+                        
+                        // Subtle repel effect
+                        particles[i].x += dxMouse * 0.02;
+                        particles[i].y += dyMouse * 0.02;
+                    }
+                }
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = dx * dx + dy * dy;
+                    
+                    if (dist < 10000) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(248, 252, 251, ${0.1 - dist/100000})`;
+                        ctx.stroke();
+                    }
+                }
+            }
             
             requestAnimationFrame(animate);
         }
