@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, 2000); // Start after 2s
     }
 
-    /* 3. Mouse Glow Effect on Interactive Cards */
+    /* 3. Mouse Glow Spotlight & Ultra-Subtle 3D Micro-Tilt Effect on Interactive Cards */
     const interactiveCards = document.querySelectorAll('.interactive-card');
     interactiveCards.forEach(card => {
         card.addEventListener('mousemove', e => {
@@ -58,19 +58,101 @@ document.addEventListener('DOMContentLoaded', () => {
             
             card.style.setProperty('--mx', `${x}px`);
             card.style.setProperty('--my', `${y}px`);
+
+            // Ultra-subtle 3D micro-tilt calculation (max 1.8deg)
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -1.8;
+            const rotateY = ((x - centerX) / centerX) * 1.8;
+
+            card.style.setProperty('--rx', `${rotateX.toFixed(2)}deg`);
+            card.style.setProperty('--ry', `${rotateY.toFixed(2)}deg`);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--rx', `0deg`);
+            card.style.setProperty('--ry', `0deg`);
         });
     });
 
-    /* 4. Advanced GSAP Scroll Animations */
-    
-    // Hero Section Initial Animation
-    const heroTl = gsap.timeline();
-    
-    heroTl.set('.fade-in-up', { autoAlpha: 1 }); // Make elements visible for GSAP
-    heroTl.fromTo('.fade-in-up', 
-        { y: 30, opacity: 0, filter: 'blur(8px)' },
-        { y: 0, opacity: 1, filter: 'blur(0px)', duration: 1, stagger: 0.1, ease: 'power3.out', delay: 0.2 }
-    );
+    /* 3b. Hero Photo Proximity Hover */
+    const heroSection = document.querySelector('.hero');
+    const heroVisual = document.querySelector('.hero-visual');
+    if (heroSection && heroVisual) {
+        heroSection.addEventListener('mousemove', e => {
+            const heroRect = heroSection.getBoundingClientRect();
+            const mouseXPercent = (e.clientX - heroRect.left) / heroRect.width;
+            // Trigger when cursor is in the right ~55% of the hero
+            if (mouseXPercent > 0.45) {
+                heroVisual.classList.add('photo-active');
+            } else {
+                heroVisual.classList.remove('photo-active');
+            }
+        });
+        heroSection.addEventListener('mouseleave', () => {
+            heroVisual.classList.remove('photo-active');
+        });
+    }
+
+    /* 4. Preloader Loading Screen & Silky Smooth Reveal Sequence */
+    const preloader = document.getElementById('preloader');
+    const preloaderPercent = document.getElementById('preloader-percent');
+    const preloaderProgress = document.getElementById('preloader-progress');
+
+    function animateHeroEntrance() {
+        const heroTl = gsap.timeline();
+        
+        // Make text elements visible for fade-in (photo GPU layer is already active & opacity: 0)
+        gsap.set('.fade-in-up', { visibility: 'visible' });
+        
+        heroTl.fromTo('.fade-in-up', 
+            { y: 35, opacity: 0 },
+            { y: 0, opacity: 1, duration: 1.1, stagger: 0.09, ease: 'power3.out' }
+        );
+
+        heroTl.fromTo('.hero-visual',
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 1.25, ease: 'power3.out' },
+            '-=0.9'
+        );
+    }
+
+    if (preloader && preloaderPercent && preloaderProgress) {
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.floor(Math.random() * 9) + 4;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
+
+                setTimeout(() => {
+                    const tl = gsap.timeline();
+                    tl.to('.preloader-content', {
+                        opacity: 0,
+                        y: -15,
+                        duration: 0.3,
+                        ease: 'power2.in'
+                    })
+                    .to(preloader, {
+                        yPercent: -100,
+                        duration: 0.85,
+                        ease: 'power3.inOut',
+                        onComplete: () => {
+                            preloader.style.display = 'none';
+                        }
+                    })
+                    .add(() => {
+                        animateHeroEntrance();
+                    }, '-=0.55'); // Trigger hero reveal DURING curtain slide up
+                }, 100);
+            }
+
+            preloaderPercent.textContent = progress < 10 ? `0${progress}` : `${progress}`;
+            preloaderProgress.style.width = `${progress}%`;
+        }, 30);
+    } else {
+        animateHeroEntrance();
+    }
 
     // Fade-in elements on scroll
     gsap.utils.toArray('.fade-in').forEach(elem => {
@@ -80,8 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 y: 0,
                 opacity: 1,
-                duration: 1,
-                ease: 'power3.out',
+                duration: 1.2,
+                ease: 'expo.out',
                 scrollTrigger: {
                     trigger: elem,
                     start: 'top 85%',
@@ -248,4 +330,67 @@ document.addEventListener('DOMContentLoaded', () => {
         
         animate();
     }
+
+    /* 8. Active Navigation Link on Scroll & Progress Bar */
+    const sections = document.querySelectorAll('section');
+    const navLinksList = document.querySelectorAll('.nav-links a');
+    const navIndicator = document.querySelector('.nav-active-indicator');
+    const progressBar = document.querySelector('.nav-progress-bar');
+
+    // Update Progress Bar with requestAnimationFrame for smoothness
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if (progressBar) {
+                    progressBar.style.width = scrolled + "%";
+                }
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-30% 0px -40% 0px',
+        threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute('id');
+                let hasActive = false;
+                
+                navLinksList.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentId}`) {
+                        link.classList.add('active');
+                        hasActive = true;
+                        
+                        // Move Indicator
+                        if (navIndicator) {
+                            const linkRect = link.getBoundingClientRect();
+                            const containerRect = link.closest('.nav-links').getBoundingClientRect();
+                            navIndicator.style.width = `${linkRect.width}px`;
+                            navIndicator.style.left = `${linkRect.left - containerRect.left}px`;
+                            navIndicator.style.opacity = '1';
+                        }
+                    }
+                });
+                
+                if (!hasActive && navIndicator) {
+                    navIndicator.style.opacity = '0';
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
 });

@@ -14,6 +14,22 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+    <!-- Preloader Screen -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo font-mono">
+                <span class="nav-dot"></span>
+                <span>AHMED ABUZAR</span>
+            </div>
+            <div class="preloader-counter font-mono">
+                <span id="preloader-percent">00</span><span class="text-accent">%</span>
+            </div>
+        </div>
+        <div class="preloader-progress-bar">
+            <div id="preloader-progress" class="preloader-progress"></div>
+        </div>
+    </div>
+
     <!-- Particle Background -->
     <canvas id="particle-canvas" class="particle-bg"></canvas>
 
@@ -26,13 +42,14 @@
                     Ahmed Abuzar
                 </a>
                 <ul class="nav-links">
+                    <div class="nav-active-indicator"></div>
                     <li><a href="#about" class="font-mono">About</a></li>
                     <li><a href="#skills" class="font-mono">Stack</a></li>
                     <li><a href="#experience" class="font-mono">Experience</a></li>
                     <li><a href="#work" class="font-mono">Work</a></li>
                     <li><a href="#contact" class="font-mono">Contact</a></li>
                 </ul>
-                <a href="#contact" class="nav-contact font-mono">Get in touch</a>
+                <a href="resume.pdf" target="_blank" class="nav-contact font-mono">Grab Resume ↓</a>
             </div>
             <div class="nav-progress-bar"></div>
         </nav>
@@ -42,6 +59,10 @@
         <!-- Hero Section -->
         <section id="top" class="hero">
             <div class="hero-bg-gradient"></div>
+            <!-- Photo lives outside hero-container so mix-blend-mode can reach the starfield -->
+            <div class="hero-visual fade-in">
+                <img src="profile.jpg" alt="Ahmed Abuzar" class="profile-img">
+            </div>
             <div class="container hero-container">
                 <div class="hero-grid">
                     <div class="hero-content">
@@ -75,8 +96,8 @@
                             <a href="#contact" class="btn-primary font-mono">Start a project →</a>
                             <a href="#work" class="btn-secondary font-mono">View work</a>
                             <div class="hero-socials font-mono text-faint">
-                                <a href="https://github.com" target="_blank">GITHUB</a>
-                                <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank">LINKEDIN</a>
+                                <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer">GITHUB</a>
+                                <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
                             </div>
                         </div>
 
@@ -90,9 +111,6 @@
                                 <dd class="text-bone">Excel · Power BI · SQL · Python · Tableau</dd>
                             </div>
                         </dl>
-                    </div>
-                    <div class="hero-visual fade-in">
-                        <img src="profile.jpg" alt="Ahmed Abuzar" class="profile-img">
                     </div>
                 </div>
             </div>
@@ -143,14 +161,17 @@
         <!-- Skills Section -->
         <section id="skills" class="section">
             <div class="container">
-                <div class="section-header fade-in">
-                    <span class="section-num font-mono">01</span>
-                    <span class="section-line"></span>
-                    <span class="section-title font-mono uppercase tracking-widest">Stack</span>
+                <div class="work-header-row fade-in">
+                    <div class="section-header" style="margin-bottom: 0;">
+                        <span class="section-num font-mono">01</span>
+                        <span class="section-line"></span>
+                        <span class="section-title font-mono uppercase tracking-widest">Stack</span>
+                    </div>
+                    <span class="work-subtitle font-mono">Tools, frameworks, and technologies I work with daily.</span>
                 </div>
 
                 <div class="skills-grid fade-in">
-                    <div class="skill-category card-hover">
+                    <div class="skill-category interactive-card card-hover">
                         <div class="skill-category-header">
                             <span class="nav-dot"></span>
                             <h3 class="font-mono uppercase text-faint">CORE TOOLS</h3>
@@ -161,47 +182,61 @@
                             <span class="skill-tag">Tableau</span>
                             <span class="skill-tag">SQL</span>
                             <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Odoo CRM</span>
                         </div>
                     </div>
 
-                    <div class="skill-category card-hover">
+                    <div class="skill-category interactive-card card-hover">
                         <div class="skill-category-header">
                             <span class="nav-dot"></span>
                             <h3 class="font-mono uppercase text-faint">DATA & ANALYTICS</h3>
                         </div>
                         <div class="skill-tags font-mono">
+                            <span class="skill-tag">PostgreSQL</span>
                             <span class="skill-tag">Power Query</span>
                             <span class="skill-tag">DAX</span>
                             <span class="skill-tag">Data Cleaning</span>
                             <span class="skill-tag">NumPy</span>
                             <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">XLOOKUP</span>
                         </div>
                     </div>
 
-                    <div class="skill-category card-hover">
+                    <div class="skill-category interactive-card card-hover">
                         <div class="skill-category-header">
                             <span class="nav-dot"></span>
-                            <h3 class="font-mono uppercase text-faint">COMPETENCIES</h3>
+                            <h3 class="font-mono uppercase text-faint">SPECIALIZATIONS</h3>
                         </div>
                         <div class="skill-tags font-mono">
                             <span class="skill-tag">Dashboard Design</span>
                             <span class="skill-tag">KPI Tracking</span>
-                            <span class="skill-tag">Marketing ROI</span>
-                            <span class="skill-tag">Sentiment Analysis</span>
                         </div>
                     </div>
                     
-                    <div class="skill-category card-hover">
+                    <div class="skill-category interactive-card card-hover">
                         <div class="skill-category-header">
                             <span class="nav-dot"></span>
-                            <h3 class="font-mono uppercase text-faint">AUTOMATION</h3>
+                            <h3 class="font-mono uppercase text-faint">AUTOMATION & WORKFLOWS</h3>
                         </div>
                         <div class="skill-tags font-mono">
                             <span class="skill-tag">Make.com</span>
+                            <span class="skill-tag">Zapier</span>
+                            <span class="skill-tag">n8n</span>
                             <span class="skill-tag">Lead Routing</span>
                             <span class="skill-tag">Email Workflows</span>
+                            <span class="skill-tag">Webhooks</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category interactive-card card-hover">
+                        <div class="skill-category-header">
+                            <span class="nav-dot"></span>
+                            <h3 class="font-mono uppercase text-faint">WEB & DEVELOPMENT</h3>
+                        </div>
+                        <div class="skill-tags font-mono">
+                            <span class="skill-tag">HTML5 / CSS3</span>
+                            <span class="skill-tag">JavaScript (ES6+)</span>
+                            <span class="skill-tag">Web Dashboards</span>
+                            <span class="skill-tag">UI/UX Principles</span>
+                            <span class="skill-tag">Performance Tuning</span>
                         </div>
                     </div>
                 </div>
@@ -277,13 +312,13 @@
         <!-- Projects Section -->
         <section id="work" class="section">
             <div class="container">
-                <div class="flex items-end justify-between mb-12 fade-in">
+                <div class="work-header-row fade-in">
                     <div class="section-header" style="margin-bottom: 0;">
                         <span class="section-num font-mono">03</span>
                         <span class="section-line"></span>
                         <span class="section-title font-mono uppercase tracking-widest">Selected Work</span>
                     </div>
-                    <p class="max-w-md text-sm text-muted hidden-mobile">Dashboards, analytics, and data modeling.</p>
+                    <p class="work-subtitle font-mono text-muted">Dashboards, analytics, and data modeling.</p>
                 </div>
 
                 <div class="projects-grid fade-in">
@@ -295,16 +330,22 @@
                                 <span class="font-mono text-accent text-sm">01</span>
                                 <span class="nav-dot"></span>
                             </div>
-                            <h3 class="project-title text-bone">FIFA Historical Analysis</h3>
-                            <p class="project-desc">Cleaned and structured World Cup data (1930–2022) using SQL. Built a Power BI dashboard with DAX measures to visualize trends.</p>
+                            <h3 class="project-title text-bone">FIFA World Cup Analytics</h3>
+                            <p class="project-desc">Interactive Power BI dashboard analyzing 92 years of FIFA World Cup history, built with PostgreSQL data cleaning and custom DAX measures.</p>
                             
-                            <div class="project-terminal">
-                                <code class="font-mono text-accent"><span class="text-faint">$ </span>SELECT * FROM fifa_data</code>
-                                <button class="btn-copy font-mono">COPY</button>
-                            </div>
+                            <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics" target="_blank" rel="noopener noreferrer" class="project-repo-link font-mono">
+                                <div class="repo-link-left">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                                    </svg>
+                                    <span class="repo-link-title">fifa-world-cup-analytics</span>
+                                </div>
+                                <span class="repo-link-arrow">↗</span>
+                            </a>
 
                             <div class="project-tech font-mono">
                                 <span>SQL</span>
+                                <span>PostgreSQL</span>
                                 <span>Power BI</span>
                                 <span>DAX</span>
                             </div>
@@ -318,16 +359,22 @@
                                 <span class="font-mono text-accent text-sm">02</span>
                                 <span class="nav-dot"></span>
                             </div>
-                            <h3 class="project-title text-bone">Marketing ROI Dashboard</h3>
-                            <p class="project-desc">Analyzed campaign data to evaluate cost efficiency. Built an Excel dashboard using XLOOKUP and Pivot Tables for budget optimization.</p>
+                            <h3 class="project-title text-bone">Marketing ROI Analysis</h3>
+                            <p class="project-desc">Excel-based marketing performance and ROI analysis dashboard analyzing spend, revenue, conversions, and campaign effectiveness across channels.</p>
                             
-                            <div class="project-terminal">
-                                <code class="font-mono text-accent"><span class="text-faint">$ </span>calc_roi --channel all</code>
-                                <button class="btn-copy font-mono">COPY</button>
-                            </div>
+                            <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis" target="_blank" rel="noopener noreferrer" class="project-repo-link font-mono">
+                                <div class="repo-link-left">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                                    </svg>
+                                    <span class="repo-link-title">Marketing-Performance-ROI-Analysis</span>
+                                </div>
+                                <span class="repo-link-arrow">↗</span>
+                            </a>
 
                             <div class="project-tech font-mono">
                                 <span>Excel</span>
+                                <span>Power BI</span>
                                 <span>Pivot Tables</span>
                             </div>
                         </div>
@@ -340,15 +387,21 @@
                                 <span class="font-mono text-accent text-sm">03</span>
                                 <span class="nav-dot"></span>
                             </div>
-                            <h3 class="project-title text-bone">Budget Simulator</h3>
-                            <p class="project-desc">Interactive Power BI dashboard implementing What-If budget simulations to evaluate revenue and ROI impacts before execution.</p>
+                            <h3 class="project-title text-bone">Budget Optimization Simulator</h3>
+                            <p class="project-desc">Power BI dashboard for marketing performance analysis and interactive budget what-if simulation to evaluate revenue and ROI impacts.</p>
                             
-                            <div class="project-terminal">
-                                <code class="font-mono text-accent"><span class="text-faint">$ </span>simulate --budget 50k</code>
-                                <button class="btn-copy font-mono">COPY</button>
-                            </div>
+                            <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator" target="_blank" rel="noopener noreferrer" class="project-repo-link font-mono">
+                                <div class="repo-link-left">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                                    </svg>
+                                    <span class="repo-link-title">Budget-Optimization-ROI-Simulator</span>
+                                </div>
+                                <span class="repo-link-arrow">↗</span>
+                            </a>
 
                             <div class="project-tech font-mono">
+                                <span>Power BI</span>
                                 <span>Power Query</span>
                                 <span>DAX</span>
                             </div>
@@ -369,16 +422,20 @@
                 </div>
 
                 <h2 class="contact-title fade-in font-display">
-                    Let's build something <span class="text-accent">that lasts.</span>
+                    Let's turn your data into <span class="text-accent">actionable growth.</span>
                 </h2>
                 <p class="contact-desc fade-in text-muted">
-                    Data analysis, dashboards, or tracking KPIs — if it needs to be measured and optimized, let's talk. Based in Bengaluru, India.
+                    Have a project in mind, need custom KPI dashboards, workflow automations, or high-performance websites built for your business? My inbox is always open.
                 </p>
 
                 <ul class="contact-list fade-in mt-16">
                     <li>
                         <a href="mailto:ahmedabuzar123@gmail.com" class="contact-item group">
                             <div class="contact-left">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="contact-icon">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                </svg>
                                 <span class="contact-label font-mono text-faint group-hover:text-accent">EMAIL</span>
                                 <span class="contact-value text-bone font-display group-hover:text-accent">ahmedabuzar123@gmail.com</span>
                             </div>
@@ -386,19 +443,25 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" class="contact-item group">
+                        <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="contact-item group">
                             <div class="contact-left">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/>
+                                </svg>
                                 <span class="contact-label font-mono text-faint group-hover:text-accent">LINKEDIN</span>
-                                <span class="contact-value text-bone font-display group-hover:text-accent">/in/ahmed-abuzar</span>
+                                <span class="contact-value text-bone font-display group-hover:text-accent">/in/ahmed-abuzar-b81a69288</span>
                             </div>
                             <span class="contact-arrow font-mono text-bone group-hover:text-accent">→</span>
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com" target="_blank" class="contact-item group">
+                        <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer" class="contact-item group">
                             <div class="contact-left">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="contact-icon">
+                                    <path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/>
+                                </svg>
                                 <span class="contact-label font-mono text-faint group-hover:text-accent">GITHUB</span>
-                                <span class="contact-value text-bone font-display group-hover:text-accent">/github</span>
+                                <span class="contact-value text-bone font-display group-hover:text-accent">/ahmedabuzar</span>
                             </div>
                             <span class="contact-arrow font-mono text-bone group-hover:text-accent">→</span>
                         </a>
