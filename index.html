@@ -9,7 +9,7 @@
     <!-- Premium Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="index.css">
 </head>
@@ -17,55 +17,69 @@
     <!-- Preloader Screen -->
     <div id="preloader" class="preloader">
         <div class="preloader-content">
-            <div class="preloader-title">
+            <div class="preloader-title font-display">
                 AHMED ABUZAR<span class="text-accent">.</span>
             </div>
             <p class="preloader-subtitle font-mono">DATA ANALYST & DASHBOARD ARCHITECT</p>
+            <div class="preloader-bar">
+                <div id="preloader-fill" class="preloader-fill"></div>
+            </div>
         </div>
     </div>
 
-    <!-- Top Minimal Header Bar -->
+    <!-- Top Navigation Header -->
     <header class="top-bar">
         <div class="container top-bar-inner">
             <a href="#top" class="brand-logo font-display">
-                Ahmed Abuzar<span class="text-accent">.</span>
+                A<span class="text-accent">.</span>
             </a>
-            <div class="top-bar-meta font-mono text-muted">
-                <span>Bengaluru, India</span>
-                <span class="meta-dot">·</span>
+            <div class="top-bar-meta font-mono">
+                <span class="location-text text-muted">Bengaluru, India</span>
+                <span class="meta-dot text-accent">·</span>
                 <span id="clock" class="text-bone">--:--:--</span>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section id="top" class="hero-section">
+        <!-- Hero Section (Priyansh Layout + Ahmed's B&W Photo Blend) -->
+        <section id="top" class="hero">
+            <!-- Orange Dot Matrix Background Pattern on Right -->
+            <div class="hero-dot-matrix"></div>
+
+            <!-- Ahmed's Signature Blended Photo (V1 Blend preserved) -->
+            <div class="hero-visual fade-in">
+                <img src="profile.jpg" alt="Ahmed Abuzar" class="profile-img">
+            </div>
+
             <div class="container hero-container">
-                <div class="hero-center">
+                <div class="hero-content">
                     
-                    <!-- Circular Avatar Profile Photo -->
-                    <div class="hero-avatar-wrapper fade-in-up">
-                        <div class="avatar-ring"></div>
-                        <img src="profile.jpg" alt="Ahmed Abuzar" class="hero-avatar-img">
+                    <!-- Avatar Micro Badge -->
+                    <div class="hero-avatar-badge fade-in-up">
+                        <span class="status-dot-ping"></span>
+                        <span class="font-mono text-xs text-muted">BASED IN BENGALURU</span>
                     </div>
 
-                    <!-- Greeting & Title -->
-                    <h1 class="hero-heading font-display fade-in-up">
+                    <!-- Main Hero Heading -->
+                    <h1 class="hero-title font-display fade-in-up">
                         Hi, I'm Ahmed<span class="text-accent">.</span>
                     </h1>
 
-                    <p class="hero-tagline font-display fade-in-up">
-                        Data Analyst <span class="text-muted">transforming complex datasets into clear KPI dashboards & growth insights.</span>
+                    <!-- Terminal Typewriter Line -->
+                    <div class="hero-typewriter font-mono fade-in-up">
+                        <span class="prompt-symbol text-accent">&gt;</span>
+                        <span id="cycling-text" class="typewriter-text text-bone">DATA ANALYST</span>
+                        <span class="cursor-block">|</span>
+                    </div>
+
+                    <!-- Bio Paragraph -->
+                    <p class="hero-desc fade-in-up">
+                        Information Science graduate turning marketing and business data into clear KPI dashboards and actionable insights. Skilled in data cleaning, DAX modeling, and ROI analysis.
                     </p>
 
-                    <!-- Short Narrative Intro -->
-                    <p class="hero-intro fade-in-up">
-                        Information Science graduate specializing in marketing performance analytics, DAX data modeling, and automated lead workflows.
-                    </p>
-
-                    <!-- Inline Slash-Separated Links -->
-                    <div class="hero-inline-links font-mono fade-in-up">
+                    <!-- Monospace Slash Links -->
+                    <div class="hero-slash-links font-mono fade-in-up">
                         <a href="mailto:ahmedabuzar123@gmail.com" class="slash-link">E-MAIL</a>
                         <span class="slash-divider">/</span>
                         <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="slash-link">LINKEDIN</a>
@@ -75,11 +89,13 @@
                         <a href="Resume.pdf" target="_blank" class="slash-link text-accent">RESUME ↗</a>
                     </div>
 
-                    <!-- Primary Action -->
-                    <div class="hero-action fade-in-up">
-                        <a href="#work" class="text-link font-mono">
-                            <span>Explore Selected Work</span>
-                            <span class="link-arrow">↘</span>
+                    <!-- Priyansh Signature Orange Starburst Button -->
+                    <div class="hero-starburst-wrapper fade-in-up">
+                        <a href="#about" class="starburst-btn" aria-label="Scroll to About section">
+                            <svg class="starburst-shape" viewBox="0 0 100 100" width="56" height="56">
+                                <path d="M50 0 C54 10 60 10 70 6 C74 16 80 20 90 20 C90 30 94 36 100 50 C94 64 90 70 90 80 C80 80 74 84 70 94 C60 90 54 90 50 100 C46 90 40 90 30 94 C26 84 20 80 10 80 C10 70 6 64 0 50 C6 36 10 30 10 20 C20 20 26 16 30 6 C40 10 46 10 50 0 Z" fill="#e07a3a"/>
+                            </svg>
+                            <span class="starburst-arrow">↓</span>
                         </a>
                     </div>
 
@@ -87,84 +103,110 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="section">
-            <div class="container">
-                <div class="section-label font-mono text-accent fade-in">ABOUT</div>
-                <h2 class="section-heading font-display fade-in">
-                    Turning raw data into decision-ready visibility<span class="text-accent">.</span>
-                </h2>
+        <!-- Scroll Transition 1: Full-Bleed Curved Light Theme Section (Priyansh Style Reveal) -->
+        <section id="about" class="light-section-wrapper">
+            <div class="light-section-card container-fluid">
+                <div class="container light-section-content">
+                    
+                    <div class="section-tag font-mono text-accent fade-in">ABOUT ME</div>
+                    
+                    <h2 class="light-heading font-display fade-in">
+                        Turning raw data into decision-ready visibility<span class="text-accent">.</span>
+                    </h2>
 
-                <div class="about-grid fade-in">
-                    <div class="about-text-column">
-                        <p class="text-lead">
-                            I am a Data Analyst with 2+ years of hands-on experience spanning marketing performance tracking, data cleaning, automated lead routing, and custom dashboard design.
-                        </p>
-                        <p class="text-body">
-                            My core analytical stack revolves around <strong>Excel</strong>, <strong>Power BI</strong>, <strong>SQL</strong> (including <strong>PostgreSQL</strong>), and <strong>Python</strong> (NumPy & Pandas). Whether it's consolidating multi-channel advertising datasets to measure Conversion Rate and ROI, building complex DAX measures, or automating marketing workflows via Make.com and Odoo CRM, my focus is always on clarity, precision, and business impact.
-                        </p>
+                    <p class="light-lead fade-in">
+                        I am a Data Analyst with 2+ years of hands-on experience spanning marketing performance tracking, data cleaning, automated lead routing, and custom dashboard design.
+                    </p>
+
+                    <p class="light-body text-muted fade-in">
+                        My foundation is in information science and problem-solving. Whether it's consolidating multi-channel advertising datasets to measure Conversion Rate and ROI, building complex DAX measures, or automating marketing workflows via Make.com and Odoo CRM, I ensure that businesses have the data visibility they need to optimize their strategies and budgets.
+                    </p>
+
+                    <!-- Interactive Action Pill Button -->
+                    <div class="light-action-row fade-in">
+                        <a href="#work" class="black-action-pill font-mono">
+                            <span>EXPLORE DASHBOARDS !</span>
+                            <span class="pill-arrow-circle">↗</span>
+                        </a>
                     </div>
 
-                    <div class="bento-stats-grid">
+                    <!-- Tech Stack Pills Grid -->
+                    <div class="tech-pills-container fade-in">
+                        <span class="tech-pill font-mono">Excel</span>
+                        <span class="tech-pill font-mono">Power BI</span>
+                        <span class="tech-pill font-mono">SQL</span>
+                        <span class="tech-pill font-mono">PostgreSQL</span>
+                        <span class="tech-pill font-mono">Python</span>
+                        <span class="tech-pill font-mono">NumPy</span>
+                        <span class="tech-pill font-mono">Pandas</span>
+                        <span class="tech-pill font-mono">Power Query</span>
+                        <span class="tech-pill font-mono">DAX</span>
+                        <span class="tech-pill font-mono">Make.com</span>
+                        <span class="tech-pill font-mono">Odoo CRM</span>
+                    </div>
+
+                    <!-- Bento Stat Cards -->
+                    <div class="bento-stats-grid fade-in">
                         <div class="bento-card">
                             <span class="bento-number font-display">2<span class="text-accent">+</span></span>
                             <span class="bento-label font-mono">YEARS EXPERIENCE</span>
                         </div>
                         <div class="bento-card">
                             <span class="bento-number font-display">5<span class="text-accent">+</span></span>
-                            <span class="bento-label font-mono">ANALYTICS TOOLS</span>
+                            <span class="bento-label font-mono">CORE TOOLS</span>
                         </div>
                         <div class="bento-card">
                             <span class="bento-number font-display">100<span class="text-accent">%</span></span>
-                            <span class="bento-label font-mono">DATA ACCURACY</span>
+                            <span class="bento-label font-mono">DATA-DRIVEN</span>
                         </div>
                         <div class="bento-card">
                             <span class="bento-number font-display">B.E.</span>
                             <span class="bento-label font-mono">INFO SCIENCE</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="section">
+        <!-- Experience Section (Dark Obsidian Theme) -->
+        <section id="experience" class="section dark-section">
             <div class="container">
-                <div class="section-label font-mono text-accent fade-in">EXPERIENCE</div>
-                <h2 class="section-heading font-display fade-in">
+                <div class="section-tag font-mono text-accent fade-in">CAREER JOURNEY</div>
+                <h2 class="section-title font-display fade-in">
                     Where I've worked & delivered impact<span class="text-accent">.</span>
                 </h2>
 
-                <div class="experience-list fade-in">
+                <div class="experience-stack fade-in">
                     
                     <div class="experience-card">
-                        <div class="exp-header">
+                        <div class="exp-top">
                             <div>
-                                <span class="exp-company font-display">Avoor Networks</span>
-                                <h3 class="exp-role text-muted">Digital Marketing Executive</h3>
+                                <h3 class="exp-company font-display">Avoor Networks</h3>
+                                <span class="exp-role text-muted font-body">Digital Marketing Executive</span>
                             </div>
                             <span class="exp-date font-mono text-accent">JAN 2026 — MAR 2026</span>
                         </div>
-                        <p class="exp-desc">
-                            Consolidated and cleaned multi-channel campaign datasets using advanced Excel to track Conversion Rate and ROI. Built interactive Power BI dashboards for real-time campaign monitoring. Automated lead routing and email workflows using Make.com and Odoo CRM.
+                        <p class="exp-description text-muted">
+                            Consolidated and cleaned multi-channel campaign datasets using advanced Excel to track Conversion Rate and ROI. Built interactive Power BI dashboards for campaign monitoring. Automated workflows and lead routing using Make.com and Odoo CRM.
                         </p>
-                        <div class="exp-tech-inline font-mono">
+                        <div class="exp-tags font-mono">
                             <span>Excel</span> · <span>Power BI</span> · <span>Odoo CRM</span> · <span>Make.com</span>
                         </div>
                     </div>
 
                     <div class="experience-card">
-                        <div class="exp-header">
+                        <div class="exp-top">
                             <div>
-                                <span class="exp-company font-display">Cranes Varsity</span>
-                                <h3 class="exp-role text-muted">Data Science Intern</h3>
+                                <h3 class="exp-company font-display">Cranes Varsity</h3>
+                                <span class="exp-role text-muted font-body">Data Science Intern</span>
                             </div>
                             <span class="exp-date font-mono text-muted">AUG 2023 — SEP 2023</span>
                         </div>
-                        <p class="exp-desc">
-                            Led a Sentiment Analysis Project using machine learning algorithms to classify user comments. Developed models in Google Colab to enhance text data interpretation and support data-driven decision-making.
+                        <p class="exp-description text-muted">
+                            Led a Sentiment Analysis Project using ML algorithms to classify comments. Developed models in Google Colab to enhance data interpretation and support data-driven decision-making.
                         </p>
-                        <div class="exp-tech-inline font-mono">
+                        <div class="exp-tags font-mono">
                             <span>Python</span> · <span>Machine Learning</span> · <span>Google Colab</span> · <span>Pandas</span>
                         </div>
                     </div>
@@ -173,68 +215,68 @@
             </div>
         </section>
 
-        <!-- Selected Work / Projects Section -->
-        <section id="work" class="section">
+        <!-- Selected Work / Projects Section (Priyansh Card Stack) -->
+        <section id="work" class="section dark-section">
             <div class="container">
-                <div class="section-label font-mono text-accent fade-in">PROJECTS</div>
-                <h2 class="section-heading font-display fade-in">
-                    Selected work & analytics case studies<span class="text-accent">.</span>
+                <div class="section-tag font-mono text-accent fade-in">SELECTED WORK</div>
+                <h2 class="section-title font-display fade-in">
+                    Featured analytics case studies<span class="text-accent">.</span>
                 </h2>
 
-                <div class="projects-container fade-in">
+                <div class="projects-stack fade-in">
                     
                     <!-- Project 01 -->
-                    <div class="project-row-card">
-                        <div class="project-num font-mono text-accent">01</div>
-                        <div class="project-body">
-                            <h3 class="project-name font-display">FIFA World Cup Analytics</h3>
-                            <p class="project-summary">
-                                Interactive Power BI dashboard analyzing 92 years of FIFA World Cup history, built with PostgreSQL data cleaning, relational data modeling, and custom DAX measures.
-                            </p>
-                            <div class="project-tools-row font-mono text-muted">
-                                SQL · PostgreSQL · Power BI · DAX
-                            </div>
+                    <div class="priyansh-project-card">
+                        <div class="card-header">
+                            <span class="card-num font-mono text-accent">01</span>
+                            <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
+                                <span>VISIT REPO !</span>
+                                <span class="pill-arrow-circle">↗</span>
+                            </a>
                         </div>
-                        <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics" target="_blank" rel="noopener noreferrer" class="project-action-link font-mono">
-                            <span>GitHub</span>
-                            <span class="arrow">↗</span>
-                        </a>
+                        <h3 class="project-title font-display">FIFA World Cup Analytics</h3>
+                        <p class="project-summary text-muted">
+                            Interactive Power BI dashboard analyzing 92 years of FIFA World Cup history, built with PostgreSQL data cleaning, relational data modeling, and custom DAX measures.
+                        </p>
+                        <div class="project-tech-tags font-mono">
+                            <span>SQL</span> · <span>PostgreSQL</span> · <span>Power BI</span> · <span>DAX</span>
+                        </div>
                     </div>
 
                     <!-- Project 02 -->
-                    <div class="project-row-card">
-                        <div class="project-num font-mono text-accent">02</div>
-                        <div class="project-body">
-                            <h3 class="project-name font-display">Marketing ROI Analysis</h3>
-                            <p class="project-summary">
-                                Excel & Power BI dashboard evaluating marketing campaign performance, spend effectiveness, customer conversions, and ROI metrics across multiple digital acquisition channels.
-                            </p>
-                            <div class="project-tools-row font-mono text-muted">
-                                Excel · Power BI · Pivot Tables · Advanced Formulas
-                            </div>
+                    <div class="priyansh-project-card">
+                        <div class="card-header">
+                            <span class="card-num font-mono text-accent">02</span>
+                            <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
+                                <span>VISIT REPO !</span>
+                                <span class="pill-arrow-circle">↗</span>
+                            </a>
                         </div>
-                        <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis" target="_blank" rel="noopener noreferrer" class="project-action-link font-mono">
-                            <span>GitHub</span>
-                            <span class="arrow">↗</span>
-                        </a>
+                        <h3 class="project-title font-display">Marketing ROI Analysis</h3>
+                        <p class="project-summary text-muted">
+                            Excel-based marketing performance and ROI analysis dashboard analyzing spend, revenue, conversions, and campaign effectiveness across multi-channel acquisition paths.
+                        </p>
+                        <div class="project-tech-tags font-mono">
+                            <span>Excel</span> · <span>Power BI</span> · <span>Pivot Tables</span> · <span>DAX</span>
+                        </div>
                     </div>
 
                     <!-- Project 03 -->
-                    <div class="project-row-card">
-                        <div class="project-num font-mono text-accent">03</div>
-                        <div class="project-body">
-                            <h3 class="project-name font-display">Budget Optimization Simulator</h3>
-                            <p class="project-summary">
-                                Power BI analytics dashboard featuring what-if budget allocation simulation, enabling stakeholders to model marketing spend adjustments and forecast revenue outcomes.
-                            </p>
-                            <div class="project-tools-row font-mono text-muted">
-                                Power BI · Power Query · DAX · Scenario Modeling
-                            </div>
+                    <div class="priyansh-project-card">
+                        <div class="card-header">
+                            <span class="card-num font-mono text-accent">03</span>
+                            <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
+                                <span>VISIT REPO !</span>
+                                <span class="pill-arrow-circle">↗</span>
+                            </a>
                         </div>
-                        <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator" target="_blank" rel="noopener noreferrer" class="project-action-link font-mono">
-                            <span>GitHub</span>
-                            <span class="arrow">↗</span>
-                        </a>
+                        <h3 class="project-title font-display">Budget Optimization Simulator</h3>
+                        <p class="project-summary text-muted">
+                            Power BI analytics dashboard featuring what-if budget allocation simulation, enabling stakeholders to model marketing spend adjustments and forecast revenue outcomes.
+                        </p>
+                        <div class="project-tech-tags font-mono">
+                            <span>Power BI</span> · <span>Power Query</span> · <span>DAX</span> · <span>Scenario Modeling</span>
+                        </div>
                     </div>
 
                 </div>
@@ -242,29 +284,29 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section contact-section">
+        <section id="contact" class="section dark-section contact-section">
             <div class="container">
-                <div class="contact-box fade-in">
-                    <div class="section-label font-mono text-accent">GET IN TOUCH</div>
-                    <h2 class="contact-big-title font-display">
+                <div class="contact-card-box fade-in">
+                    <div class="section-tag font-mono text-accent">GET IN TOUCH</div>
+                    <h2 class="contact-title font-display">
                         Let's build data clarity together<span class="text-accent">.</span>
                     </h2>
                     <p class="contact-subtext text-muted">
-                        Need custom KPI dashboards, data modeling, automated workflows, or analytics consulting? Feel free to reach out.
+                        Need custom KPI dashboards, data modeling, automated workflows, or analytics consulting? My inbox is always open.
                     </p>
 
-                    <div class="contact-links-grid font-mono">
-                        <a href="mailto:ahmedabuzar123@gmail.com" class="contact-card">
-                            <span class="card-type text-accent">E-MAIL</span>
-                            <span class="card-val font-display">ahmedabuzar123@gmail.com</span>
+                    <div class="contact-buttons-row font-mono">
+                        <a href="mailto:ahmedabuzar123@gmail.com" class="contact-action-btn">
+                            <span class="btn-label text-accent">E-MAIL</span>
+                            <span class="btn-val font-display">ahmedabuzar123@gmail.com</span>
                         </a>
-                        <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="contact-card">
-                            <span class="card-type text-accent">LINKEDIN</span>
-                            <span class="card-val font-display">/in/ahmed-abuzar-b81a69288</span>
+                        <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="contact-action-btn">
+                            <span class="btn-label text-accent">LINKEDIN</span>
+                            <span class="btn-val font-display">/in/ahmed-abuzar-b81a69288</span>
                         </a>
-                        <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer" class="contact-card">
-                            <span class="card-type text-accent">GITHUB</span>
-                            <span class="card-val font-display">/ahmedabuzar</span>
+                        <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer" class="contact-action-btn">
+                            <span class="btn-label text-accent">GITHUB</span>
+                            <span class="btn-val font-display">/ahmedabuzar</span>
                         </a>
                     </div>
                 </div>
@@ -276,22 +318,37 @@
     <footer class="footer">
         <div class="container footer-inner font-mono text-muted">
             <span>© Ahmed Abuzar. All rights reserved.</span>
-            <a href="#top" class="top-scroll-btn">Back to top ↑</a>
+            <a href="#top" class="top-link">Back to top ↑</a>
         </div>
     </footer>
 
-    <!-- Bottom Dock Navigation Bar -->
-    <nav class="bottom-dock" id="bottom-dock">
-        <div class="dock-container font-mono">
-            <a href="#top" class="dock-item active" data-section="top">Home</a>
-            <a href="#about" class="dock-item" data-section="about">About</a>
-            <a href="#experience" class="dock-item" data-section="experience">Experience</a>
-            <a href="#work" class="dock-item" data-section="work">Work</a>
-            <a href="#contact" class="dock-item" data-section="contact">Contact</a>
+    <!-- Priyansh Signature Bottom Floating Dock Navigation -->
+    <nav class="bottom-dock-wrapper" id="bottom-dock">
+        <div class="dock-pill-container font-mono">
+            <a href="#top" class="dock-tab active" data-section="top">
+                <span class="dock-tab-label">Home</span>
+            </a>
+            <a href="#about" class="dock-tab" data-section="about">
+                <span class="dock-tab-label">About</span>
+            </a>
+            <a href="#experience" class="dock-tab" data-section="experience">
+                <span class="dock-tab-label">Experience</span>
+            </a>
+            <a href="#work" class="dock-tab" data-section="work">
+                <span class="dock-tab-label">Work</span>
+            </a>
+            <a href="#contact" class="dock-tab" data-section="contact">
+                <span class="dock-tab-label">Contact</span>
+            </a>
+        </div>
+        
+        <!-- Companion Status Pill -->
+        <div class="dock-companion-pill font-mono">
+            <span class="companion-text">MORE TO COME !</span>
         </div>
     </nav>
 
-    <!-- GSAP for Smooth Scroll & ScrollTrigger Animations -->
+    <!-- GSAP for Smooth Scroll & Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
