@@ -2,7 +2,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register GSAP ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    /* 1. Real-time Clock */
+    /* 1. Dynamic Custom Orange Cursor */
+    const cursor = document.getElementById('custom-cursor');
+    if (cursor) {
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        window.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.25;
+            cursorY += (mouseY - cursorY) * 0.25;
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Add hover effect for interactive elements
+        const interactiveSelectors = 'a, button, .bento-card, .tool-badge, .priyansh-project-card, .black-action-pill, .cyan-retro-badge';
+        document.querySelectorAll(interactiveSelectors).forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+        });
+    }
+
+    /* 2. Real-time Clock */
     const clockEl = document.getElementById('clock');
     if (clockEl) {
         function updateClock() {
@@ -13,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(updateClock, 1000);
     }
 
-    /* 2. Terminal Typewriter Effect */
+    /* 3. Terminal Typewriter Effect */
     const cyclingEl = document.getElementById('cycling-text');
     if (cyclingEl) {
         const words = ['DATA ANALYST', 'KPI DASHBOARDS', 'DAX MODELING', 'ROI ANALYTICS', 'AUTOMATED WORKFLOWS'];
@@ -50,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(type, 1500);
     }
 
-    /* 3. Hero Photo Proximity Hover Effect (Ahmed's V1 Photo Blend) */
+    /* 4. Hero Photo Proximity Hover Effect (Ahmed's V1 Photo Blend) */
     const heroSection = document.querySelector('.hero');
     const heroVisual = document.querySelector('.hero-visual');
     if (heroSection && heroVisual) {
@@ -68,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* 4. Preloader Curtain Reveal & Hero Entrance Sequence */
+    /* 5. Preloader Curtain Reveal & Hero Entrance Sequence */
     const preloader = document.getElementById('preloader');
     const preloaderFill = document.getElementById('preloader-fill');
 
@@ -124,7 +152,56 @@ document.addEventListener('DOMContentLoaded', () => {
         animateHeroEntrance();
     }
 
-    /* 5. GSAP ScrollTrigger Reveal Animations (Priyansh Style Curved Light Section Reveal) */
+    /* 6. Image 1 Pixel Mosaic Dissolve Canvas Transition */
+    const pixelCanvas = document.getElementById('pixel-canvas');
+    if (pixelCanvas) {
+        const ctx = pixelCanvas.getContext('2d');
+        const colors = ['#ffffff', '#000000', '#e85d2a', '#00d4ff', '#ffcc00', '#ff4d4d', '#4dff88'];
+        const pixelSize = 14;
+        let pixels = [];
+
+        function resizeCanvas() {
+            pixelCanvas.width = pixelCanvas.parentElement.clientWidth;
+            pixelCanvas.height = pixelCanvas.parentElement.clientHeight;
+            initPixels();
+        }
+
+        function initPixels() {
+            pixels = [];
+            const cols = Math.ceil(pixelCanvas.width / pixelSize);
+            const rows = Math.ceil(pixelCanvas.height / pixelSize);
+
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    // Density increases towards top
+                    const densityChance = 0.35 + ((rows - r) / rows) * 0.55;
+                    if (Math.random() < densityChance) {
+                        pixels.push({
+                            x: c * pixelSize,
+                            y: r * pixelSize,
+                            color: colors[Math.floor(Math.random() * colors.length)],
+                            size: pixelSize - 2
+                        });
+                    }
+                }
+            }
+        }
+
+        function drawPixels() {
+            if (!ctx) return;
+            ctx.clearRect(0, 0, pixelCanvas.width, pixelCanvas.height);
+            pixels.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.fillRect(p.x, p.y, p.size, p.size);
+            });
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        drawPixels();
+    }
+
+    /* 7. GSAP ScrollTrigger Reveal Animations */
     
     // Light Theme Section Slide Up Reveal
     gsap.fromTo('.light-section-card',
@@ -160,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         );
     });
 
-    /* 6. Priyansh Signature Bottom Dock Active Section Highlighting */
+    /* 8. Priyansh Signature Bottom Dock Active Section Highlighting */
     const dockTabs = document.querySelectorAll('.dock-tab');
     const sections = document.querySelectorAll('section[id]');
 
