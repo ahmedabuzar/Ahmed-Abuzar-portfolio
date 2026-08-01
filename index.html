@@ -11,13 +11,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css?v=20260801">
 </head>
 <body>
-    <!-- Dynamic Custom Orange Cursor -->
+    <!-- Dynamic Custom Orange Cursor (Arrow & Hand Mode) -->
     <div id="custom-cursor" class="custom-cursor">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="#e85d2a" stroke="#ffffff" stroke-width="1.5">
+        <svg class="cursor-arrow" width="18" height="18" viewBox="0 0 24 24" fill="#e85d2a" stroke="none">
             <path d="M3 3l7 18 3-7 7-3L3 3z"/>
+        </svg>
+        <svg class="cursor-hand" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ff2a2a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 11V6a2 2 0 0 0-4 0v4M14 10V4a2 2 0 0 0-4 0v6M10 10.5V3.5a2 2 0 0 0-4 0V14l-2.5-1.5a1.8 1.8 0 0 0-2.3 0.4l-0.7 0.9 4.3 4.3c0.7 0.7 1.7 1.1 2.7 1.1H16c2.2 0 4-1.8 4-4v-4c0-0.2 0-0.4 0-0.7z"/>
         </svg>
     </div>
 
@@ -38,34 +41,28 @@
     <header class="top-bar">
         <div class="container top-bar-inner">
             <a href="#top" class="brand-logo font-display">
-                A<span class="text-accent">.</span>
+                Ahmed Abuzar<span class="text-accent">.</span>
             </a>
             <div class="top-bar-meta font-mono">
-                <span class="location-text text-muted">Bengaluru, India</span>
-                <span class="meta-dot text-accent">·</span>
                 <span id="clock" class="text-bone">--:--:--</span>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section (Priyansh Layout + Ahmed's B&W Photo Blend) -->
-        <section id="top" class="hero">
-            <!-- Orange Dot Matrix Background Pattern on Right -->
-            <div class="hero-dot-matrix"></div>
-
-            <!-- Ahmed's Signature Blended Photo -->
-            <div class="hero-visual fade-in">
-                <img src="profile.jpg" alt="Ahmed Abuzar" class="profile-img">
-            </div>
+        <!-- Hero Section (Centered Layout per User Reference) -->
+        <section id="top" class="hero hero-center">
+            <!-- Interactive Dotted Hover Background (CSS Mask Spotlight - 1:1 Priyansh Match) -->
+            <div id="hero-dotted-grid" class="hero-dotted-grid"></div>
 
             <div class="container hero-container">
-                <div class="hero-content">
-                    
-                    <!-- Avatar Micro Badge -->
-                    <div class="hero-avatar-badge fade-in-up">
-                        <span class="status-dot-ping"></span>
-                        <span class="font-mono text-xs text-muted">BASED IN BENGALURU</span>
+                <div class="hero-content hero-content-center">
+
+                    <!-- Centered Circular Headshot Avatar with Glowing Outer Ring -->
+                    <div class="hero-avatar-wrapper fade-in-up">
+                        <div class="profile-avatar-circle">
+                            <img src="profile.jpg" alt="Ahmed Abuzar" class="avatar-img">
+                        </div>
                     </div>
 
                     <!-- Main Hero Heading -->
@@ -73,37 +70,154 @@
                         Hi, I'm Ahmed<span class="text-accent">.</span>
                     </h1>
 
-                    <!-- Terminal Typewriter Line -->
-                    <div class="hero-typewriter font-mono fade-in-up">
-                        <span class="prompt-symbol text-accent">&gt;</span>
-                        <span id="cycling-text" class="typewriter-text text-bone">DATA ANALYST</span>
-                        <span class="cursor-block">|</span>
+                    <!-- Subtitle / Terminal Typewriter Line (from 2nd photo reference) -->
+                    <div class="hero-subtitle-box fade-in-up">
+                        <div class="hero-subheading font-display">
+                            <span class="text-muted">Data </span><span class="text-white underline-white">Analyst</span>
+                        </div>
+                        <div class="hero-builds-typewriter font-mono">
+                            <span class="builds-prefix">BUILDS //</span>
+                            <span id="cycling-text" class="builds-value">AUTOMATION</span><span class="cursor-block-accent">|</span>
+                        </div>
                     </div>
 
                     <!-- Bio Paragraph -->
-                    <p class="hero-desc fade-in-up">
-                        Information Science graduate turning marketing and business data into clear KPI dashboards and actionable insights. Skilled in data cleaning, DAX modeling, and ROI analysis.
+                    <p class="hero-desc font-mono text-sm fade-in-up">
+                        I design digital products powered by data, thoughtful interactions, and intelligent automation. Every dashboard, workflow, and interface is built with clarity, purpose, and the people using it in mind.
                     </p>
 
-                    <!-- Monospace Slash Links -->
+                    <!-- Color-Coded Social Links -->
                     <div class="hero-slash-links font-mono fade-in-up">
-                        <a href="mailto:ahmedabuzar123@gmail.com" class="slash-link">E-MAIL</a>
+                        <a href="mailto:ahmedabuzar123@gmail.com" class="slash-link link-email">E-MAIL</a>
                         <span class="slash-divider">/</span>
-                        <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="slash-link">LINKEDIN</a>
+                        <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="slash-link link-linkedin">LINKEDIN</a>
                         <span class="slash-divider">/</span>
-                        <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer" class="slash-link">GITHUB</a>
+                        <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer" class="slash-link link-github">GITHUB</a>
                         <span class="slash-divider">/</span>
-                        <a href="Resume.pdf" target="_blank" class="slash-link text-accent">RESUME ↗</a>
+                        <a href="https://www.instagram.com/ahm3d.abuzar/" target="_blank" rel="noopener noreferrer" class="slash-link link-instagram">INSTAGRAM</a>
+                        <span class="slash-divider">/</span>
+                        <a href="resume.pdf" target="_blank" class="slash-link link-resume">RESUME ↗</a>
                     </div>
 
-                    <!-- Priyansh Signature Orange Starburst Button -->
-                    <div class="hero-starburst-wrapper fade-in-up">
-                        <a href="#about" class="starburst-btn" aria-label="Scroll to About section">
-                            <svg class="starburst-shape" viewBox="0 0 100 100" width="56" height="56">
-                                <path d="M50 0 C54 10 60 10 70 6 C74 16 80 20 90 20 C90 30 94 36 100 50 C94 64 90 70 90 80 C80 80 74 84 70 94 C60 90 54 90 50 100 C46 90 40 90 10 80 C10 70 6 64 0 50 C6 36 10 30 10 20 C20 20 26 16 30 6 C40 10 46 10 50 0 Z" fill="#e85d2a"/>
-                            </svg>
-                            <span class="starburst-arrow">↓</span>
+                    <!-- Explore Selected Work Scroll Link -->
+                    <div class="hero-explore-wrapper fade-in-up">
+                        <a href="#work" class="explore-work-link font-mono">
+                            Explore Selected Work <span class="arrow-down">↘</span>
                         </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Work / Projects Section -->
+        <section id="work" class="section dark-section">
+            <div class="container">
+                <div class="section-tag font-mono text-accent fade-in">SELECTED WORK</div>
+                <h2 class="section-title font-display fade-in">
+                    Featured analytics case studies<span class="text-accent">.</span>
+                </h2>
+
+                <div class="projects-stack fade-in">
+                    
+                    <!-- Project 01 -->
+                    <div class="priyansh-project-card">
+                        <div class="card-header">
+                            <span class="card-num font-mono text-accent">01</span>
+                            <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
+                                <span>VISIT</span>
+                                <span class="pill-arrow-circle">↗</span>
+                            </a>
+                        </div>
+                        <h3 class="project-title font-display">FIFA World Cup Analytics</h3>
+                        <p class="project-summary text-muted">
+                            Interactive Power BI dashboard analyzing 92 years of FIFA World Cup history, built with PostgreSQL data cleaning, relational data modeling, and custom DAX measures.
+                        </p>
+                        <div class="project-tech-tags font-mono">
+                            <span>SQL</span> · <span>PostgreSQL</span> · <span>Power BI</span> · <span>DAX</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 02 -->
+                    <div class="priyansh-project-card">
+                        <div class="card-header">
+                            <span class="card-num font-mono text-accent">02</span>
+                            <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
+                                <span>VISIT</span>
+                                <span class="pill-arrow-circle">↗</span>
+                            </a>
+                        </div>
+                        <h3 class="project-title font-display">Marketing ROI Analysis</h3>
+                        <p class="project-summary text-muted">
+                            Excel-based marketing performance and ROI analysis dashboard analyzing spend, revenue, conversions, and campaign effectiveness across multi-channel acquisition paths.
+                        </p>
+                        <div class="project-tech-tags font-mono">
+                            <span>Excel</span> · <span>Power BI</span> · <span>Pivot Tables</span> · <span>DAX</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 03 -->
+                    <div class="priyansh-project-card">
+                        <div class="card-header">
+                            <span class="card-num font-mono text-accent">03</span>
+                            <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
+                                <span>VISIT</span>
+                                <span class="pill-arrow-circle">↗</span>
+                            </a>
+                        </div>
+                        <h3 class="project-title font-display">Budget Optimization Simulator</h3>
+                        <p class="project-summary text-muted">
+                            Power BI analytics dashboard featuring what-if budget allocation simulation, enabling stakeholders to model marketing spend adjustments and forecast revenue outcomes.
+                        </p>
+                        <div class="project-tech-tags font-mono">
+                            <span>Power BI</span> · <span>Power Query</span> · <span>DAX</span> · <span>Scenario Modeling</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section (Dark Obsidian Theme) -->
+        <section id="experience" class="section dark-section">
+            <div class="container">
+                <div class="section-tag font-mono text-accent fade-in">CAREER JOURNEY</div>
+                <h2 class="section-title font-display fade-in">
+                    Where I've worked & delivered impact<span class="text-accent">.</span>
+                </h2>
+
+                <div class="experience-stack fade-in">
+                    
+                    <div class="experience-card">
+                        <div class="exp-top">
+                            <div>
+                                <h3 class="exp-company font-display">The CheckList Co</h3>
+                                <span class="exp-role text-muted font-body">Business Operations Analyst</span>
+                            </div>
+                            <span class="exp-date font-mono text-accent">SEPT 2025 — CURRENT</span>
+                        </div>
+                        <p class="exp-description text-muted">
+                            Managed compliance and task trackers in Excel/Google Sheets for 50+ client accounts. Built Power BI/Excel dashboards for team workload and turnaround time reporting. Automated marketing and internal workflows using Make.com and maintained operational data in Odoo CRM.
+                        </p>
+                        <div class="exp-tags font-mono">
+                            <span>Excel</span> · <span>Power BI</span> · <span>Odoo CRM</span> · <span>Make.com</span>
+                        </div>
+                    </div>
+
+                    <div class="experience-card">
+                        <div class="exp-top">
+                            <div>
+                                <h3 class="exp-company font-display">Cranes Varsity</h3>
+                                <span class="exp-role text-muted font-body">Data Science Intern</span>
+                            </div>
+                            <span class="exp-date font-mono text-muted">AUG 2023 — SEP 2023</span>
+                        </div>
+                        <p class="exp-description text-muted">
+                            Led a Sentiment Analysis Project using ML algorithms to classify comments. Developed models in Google Colab to enhance data interpretation and support data-driven decision-making.
+                        </p>
+                        <div class="exp-tags font-mono">
+                            <span>Python</span> · <span>Machine Learning</span> · <span>Google Colab</span> · <span>Pandas</span>
+                        </div>
                     </div>
 
                 </div>
@@ -152,26 +266,6 @@
                         <span class="tech-pill font-mono">Odoo CRM</span>
                     </div>
 
-                    <!-- Bento Stat Cards -->
-                    <div class="bento-stats-grid fade-in">
-                        <div class="bento-card">
-                            <span class="bento-number font-display">2<span class="text-accent">+</span></span>
-                            <span class="bento-label font-mono">YEARS EXPERIENCE</span>
-                        </div>
-                        <div class="bento-card">
-                            <span class="bento-number font-display">5<span class="text-accent">+</span></span>
-                            <span class="bento-label font-mono">CORE TOOLS</span>
-                        </div>
-                        <div class="bento-card">
-                            <span class="bento-number font-display">100<span class="text-accent">%</span></span>
-                            <span class="bento-label font-mono">DATA-DRIVEN</span>
-                        </div>
-                        <div class="bento-card">
-                            <span class="bento-number font-display">B.E.</span>
-                            <span class="bento-label font-mono">INFO SCIENCE</span>
-                        </div>
-                    </div>
-
                     <!-- Image 1 Pixel Mosaic Dissolve Canvas Transition -->
                     <div class="pixel-dissolve-container">
                         <canvas id="pixel-canvas" class="pixel-canvas"></canvas>
@@ -187,177 +281,104 @@
             </div>
         </section>
 
-        <!-- Experience Section (Dark Obsidian Theme) -->
-        <section id="experience" class="section dark-section">
-            <div class="container">
-                <div class="section-tag font-mono text-accent fade-in">CAREER JOURNEY</div>
-                <h2 class="section-title font-display fade-in">
-                    Where I've worked & delivered impact<span class="text-accent">.</span>
-                </h2>
-
-                <div class="experience-stack fade-in">
-                    
-                    <div class="experience-card">
-                        <div class="exp-top">
-                            <div>
-                                <h3 class="exp-company font-display">Avoor Networks</h3>
-                                <span class="exp-role text-muted font-body">Digital Marketing Executive</span>
-                            </div>
-                            <span class="exp-date font-mono text-accent">JAN 2026 — MAR 2026</span>
-                        </div>
-                        <p class="exp-description text-muted">
-                            Consolidated and cleaned multi-channel campaign datasets using advanced Excel to track Conversion Rate and ROI. Built interactive Power BI dashboards for campaign monitoring. Automated workflows and lead routing using Make.com and Odoo CRM.
-                        </p>
-                        <div class="exp-tags font-mono">
-                            <span>Excel</span> · <span>Power BI</span> · <span>Odoo CRM</span> · <span>Make.com</span>
-                        </div>
-                    </div>
-
-                    <div class="experience-card">
-                        <div class="exp-top">
-                            <div>
-                                <h3 class="exp-company font-display">Cranes Varsity</h3>
-                                <span class="exp-role text-muted font-body">Data Science Intern</span>
-                            </div>
-                            <span class="exp-date font-mono text-muted">AUG 2023 — SEP 2023</span>
-                        </div>
-                        <p class="exp-description text-muted">
-                            Led a Sentiment Analysis Project using ML algorithms to classify comments. Developed models in Google Colab to enhance data interpretation and support data-driven decision-making.
-                        </p>
-                        <div class="exp-tags font-mono">
-                            <span>Python</span> · <span>Machine Learning</span> · <span>Google Colab</span> · <span>Pandas</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Selected Work / Projects Section -->
-        <section id="work" class="section dark-section">
-            <div class="container">
-                <div class="section-tag font-mono text-accent fade-in">SELECTED WORK</div>
-                <h2 class="section-title font-display fade-in">
-                    Featured analytics case studies<span class="text-accent">.</span>
-                </h2>
-
-                <div class="projects-stack fade-in">
-                    
-                    <!-- Project 01 -->
-                    <div class="priyansh-project-card">
-                        <div class="card-header">
-                            <span class="card-num font-mono text-accent">01</span>
-                            <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
-                                <span>VISIT REPO !</span>
-                                <span class="pill-arrow-circle">↗</span>
-                            </a>
-                        </div>
-                        <h3 class="project-title font-display">FIFA World Cup Analytics</h3>
-                        <p class="project-summary text-muted">
-                            Interactive Power BI dashboard analyzing 92 years of FIFA World Cup history, built with PostgreSQL data cleaning, relational data modeling, and custom DAX measures.
-                        </p>
-                        <div class="project-tech-tags font-mono">
-                            <span>SQL</span> · <span>PostgreSQL</span> · <span>Power BI</span> · <span>DAX</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 02 -->
-                    <div class="priyansh-project-card">
-                        <div class="card-header">
-                            <span class="card-num font-mono text-accent">02</span>
-                            <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
-                                <span>VISIT REPO !</span>
-                                <span class="pill-arrow-circle">↗</span>
-                            </a>
-                        </div>
-                        <h3 class="project-title font-display">Marketing ROI Analysis</h3>
-                        <p class="project-summary text-muted">
-                            Excel-based marketing performance and ROI analysis dashboard analyzing spend, revenue, conversions, and campaign effectiveness across multi-channel acquisition paths.
-                        </p>
-                        <div class="project-tech-tags font-mono">
-                            <span>Excel</span> · <span>Power BI</span> · <span>Pivot Tables</span> · <span>DAX</span>
-                        </div>
-                    </div>
-
-                    <!-- Project 03 -->
-                    <div class="priyansh-project-card">
-                        <div class="card-header">
-                            <span class="card-num font-mono text-accent">03</span>
-                            <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator" target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
-                                <span>VISIT REPO !</span>
-                                <span class="pill-arrow-circle">↗</span>
-                            </a>
-                        </div>
-                        <h3 class="project-title font-display">Budget Optimization Simulator</h3>
-                        <p class="project-summary text-muted">
-                            Power BI analytics dashboard featuring what-if budget allocation simulation, enabling stakeholders to model marketing spend adjustments and forecast revenue outcomes.
-                        </p>
-                        <div class="project-tech-tags font-mono">
-                            <span>Power BI</span> · <span>Power Query</span> · <span>DAX</span> · <span>Scenario Modeling</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Image 2 Exact Match: Priyansh Bento Footer & Interactive Tool Badges -->
-        <section id="contact" class="section dark-section contact-bento-section">
+        <!-- About Me Footer Section (Priyansh Exact Match) -->
+        <section id="contact" class="section dark-section aboutme-footer-section">
             <div class="container">
                 
-                <!-- Conclusion Narrative Paragraph -->
-                <div class="footer-narrative text-center fade-in">
-                    <p class="narrative-p text-muted">
+                <!-- Interactive Scroll Color Reveal Title -->
+                <h2 class="scroll-reveal-title font-display" id="scroll-color-text"><span class="scroll-char">G</span><span class="scroll-char">o</span><span class="scroll-char">o</span><span class="scroll-char">d</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">d</span><span class="scroll-char">a</span><span class="scroll-char">s</span><span class="scroll-char">h</span><span class="scroll-char">b</span><span class="scroll-char">o</span><span class="scroll-char">a</span><span class="scroll-char">r</span><span class="scroll-char">d</span><span class="scroll-char">s</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">d</span><span class="scroll-char">o</span><span class="scroll-char">n</span><span class="scroll-char">'</span><span class="scroll-char">t</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">j</span><span class="scroll-char">u</span><span class="scroll-char">s</span><span class="scroll-char">t</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">s</span><span class="scroll-char">h</span><span class="scroll-char">o</span><span class="scroll-char">w</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">d</span><span class="scroll-char">a</span><span class="scroll-char">t</span><span class="scroll-char">a</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">—</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">t</span><span class="scroll-char">h</span><span class="scroll-char">e</span><span class="scroll-char">y</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">c</span><span class="scroll-char">h</span><span class="scroll-char">a</span><span class="scroll-char">n</span><span class="scroll-char">g</span><span class="scroll-char">e</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">h</span><span class="scroll-char">o</span><span class="scroll-char">w</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">p</span><span class="scroll-char">e</span><span class="scroll-char">o</span><span class="scroll-char">p</span><span class="scroll-char">l</span><span class="scroll-char">e</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">m</span><span class="scroll-char">a</span><span class="scroll-char">k</span><span class="scroll-char">e</span><span class="scroll-char scroll-space"> </span><span class="scroll-char">d</span><span class="scroll-char">e</span><span class="scroll-char">c</span><span class="scroll-char">i</span><span class="scroll-char">s</span><span class="scroll-char">i</span><span class="scroll-char">o</span><span class="scroll-char">n</span><span class="scroll-char">s</span><span class="scroll-char text-accent">.</span></h2>
+
+                <!-- Centered Narrative Paragraphs (Image 2 top) -->
+                <div class="aboutme-narrative fade-in">
+                    <p class="narrative-lead">
                         I'm a Data Analyst who enjoys shaping raw business datasets into clear insights and interactive dashboards. I'm particularly interested in reducing technical complexity and giving decision-makers instant visibility into campaign performance, KPIs, and ROI.
+                    </p>
+                    <p class="narrative-body">
+                        Outside of data analytics, I explore automation workflows, web development, and campaign strategy. These interests inform how I think about efficiency, clarity, and impactful reporting.
                     </p>
                 </div>
 
-                <!-- Interactive Floating Tool Badges Row (Image 2 Exact Match) -->
-                <div class="tool-badges-row fade-in">
-                    <div class="tool-badge badge-icon" title="Excel">
-                        <span class="badge-symbol">📊</span>
+                <!-- Tool Icon Badges + Orange Status Pills Row (Interactive Physics Sandbox - Priyansh 1:1 Match) -->
+                <div class="tool-row fade-in" id="physics-sandbox">
+                    <div class="sandbox-label font-mono">↗ DRAG &amp; THROW AROUND</div>
+                    <!-- Orange Status Pill: Location -->
+                    <div class="status-pill-orange physics-item" data-color="#FF5E1E">Bengaluru, India</div>
+                    <!-- Tool Icon Square: Excel -->
+                    <div class="tool-icon-square physics-item" title="Excel" data-color="#217346">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#217346" stroke-width="1.5"/><path d="M7 7l4 5-4 5M13 7l4 5-4 5" stroke="#217346" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </div>
-                    <div class="tool-badge badge-icon" title="Power BI">
-                        <span class="badge-symbol font-mono">PBI</span>
+                    <!-- Tool Icon Square: Power BI -->
+                    <div class="tool-icon-square physics-item" title="Power BI" data-color="#F2C811">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="4" height="10" rx="1" fill="#F2C811"/><rect x="10" y="6" width="4" height="14" rx="1" fill="#E8A00E"/><rect x="16" y="2" width="4" height="18" rx="1" fill="#D48B06"/></svg>
                     </div>
-                    <div class="tool-badge badge-orange font-mono">
-                        Open to Select Projects
+                    <!-- Tool Icon Square: Python -->
+                    <div class="tool-icon-square tool-icon-tall physics-item" title="Python" data-color="#3776AB">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 7 4.5 7 4.5V7h5.5v1H5S2 7.5 2 12.5 4.5 18 4.5 18H7v-3s-.2-3 3-3h5c2.5 0 3-2 3-2V4.5S18.5 2 12 2zm-1.5 1.5a1 1 0 110 2 1 1 0 010-2z" fill="#3776AB"/><path d="M12 22c5.5 0 5-2.5 5-2.5V17h-5.5v-1H19s3 .5 3-4.5S19.5 6 19.5 6H17v3s.2 3-3 3H9c-2.5 0-3 2-3 2v5.5S5.5 22 12 22zm1.5-1.5a1 1 0 110-2 1 1 0 010 2z" fill="#FFD43B"/></svg>
                     </div>
-                    <div class="tool-badge badge-icon" title="Python">
-                        <span class="badge-symbol">🐍</span>
+                    <!-- Tool Icon Square: SQL -->
+                    <div class="tool-icon-square physics-item" title="SQL" data-color="#E85D2A">
+                        <span class="tool-icon-text font-mono">SQL</span>
                     </div>
-                    <div class="tool-badge badge-orange font-mono">
-                        Bengaluru, India
+                    <!-- Tool Icon Square: PostgreSQL -->
+                    <div class="tool-icon-square physics-item" title="PostgreSQL" data-color="#336791">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="5" rx="9" ry="3" stroke="#336791" stroke-width="2"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" stroke="#336791" stroke-width="2"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" stroke="#336791" stroke-width="2"/></svg>
                     </div>
-                    <div class="tool-badge badge-icon" title="SQL / PostgreSQL">
-                        <span class="badge-symbol font-mono">SQL</span>
+                    <!-- Tool Icon Square: AI -->
+                    <div class="tool-icon-square physics-item" title="AI" data-color="#00D2FF">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                            <rect x="2" y="4" width="20" height="16" rx="4" stroke="#00D2FF" stroke-width="1.8"/>
+                            <path d="M7 16L10 8L13 16" stroke="#00D2FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8 14H12" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 8V16" stroke="#00D2FF" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
+                    <!-- Tool Icon Square: Antigravity -->
+                    <div class="tool-icon-square physics-item" title="Antigravity" data-color="#2F8CF0">
+                        <img class="antigravity-logo" src="antigravity-color.png" alt="Antigravity logo" width="32" height="32">
+                    </div>
+                    <!-- Orange Status Pill: Open to Work -->
+                    <div class="status-pill-orange physics-item" data-color="#FF5E1E">Open to Work</div>
                 </div>
 
-                <!-- Priyansh 3-Column Bento Footer Grid (Image 2 Exact Match) -->
-                <div class="bento-footer-grid fade-in">
+                <!-- 3-Column Bento Footer Grid (Image 2 Bottom) -->
+                <div class="bento-grid-3col fade-in">
                     
-                    <!-- Box 1: Interactive Dot Matrix Grid Box -->
-                    <div class="bento-grid-card card-matrix-box">
-                        <div class="bento-matrix-dots"></div>
-                    </div>
-
-                    <!-- Box 2: Project Case Showcase Card -->
-                    <div class="bento-grid-card card-showcase-box">
-                        <div class="showcase-content">
-                            <span class="font-mono text-xs text-accent">KEY CASE STUDY</span>
-                            <h4 class="font-display showcase-title">Marketing ROI Analytics</h4>
+                    <!-- Card 1: Decorative dot-accent card with subtle illustration -->
+                    <div class="bento-tall-card card-decorative">
+                        <!-- Orange dot accents in corners -->
+                        <div class="deco-dots top-left">
+                            <span></span><span></span>
+                            <span></span><span></span>
                         </div>
-                        <div class="showcase-dots font-mono text-xs">
-                            <span class="dot-active">●</span> <span>○</span> <span>○</span>
+                        <div class="deco-line"></div>
+                        <div class="deco-dots bottom-right">
+                            <span></span><span></span>
+                            <span></span><span></span>
                         </div>
                     </div>
 
-                    <!-- Box 3: Thoughts Quote Box -->
-                    <div class="bento-grid-card card-thoughts-box">
-                        <span class="thoughts-label font-mono text-accent text-xs">THOUGHTS</span>
-                        <h4 class="thoughts-quote font-display">
-                            DATA-DRIVEN DECISIONS,<br>ELEGANTLY EXPRESSED<span class="text-accent">.</span>
+                    <!-- Card 2: Case Study Showcase with image area -->
+                    <div class="bento-tall-card card-showcase">
+                        <div class="showcase-img-area">
+                            <div class="showcase-placeholder">
+                                <span class="font-mono text-accent text-xs">FEATURED PROJECT</span>
+                                <h4 class="font-display showcase-project-name">Marketing ROI<br>Analytics</h4>
+                                <p class="font-mono text-xs text-muted" style="margin-top: 0.5rem;">Power BI · Excel · DAX</p>
+                            </div>
+                        </div>
+                        <div class="showcase-carousel-dots">
+                            <span class="cdot active"></span>
+                            <span class="cdot"></span>
+                            <span class="cdot"></span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Thoughts Quote -->
+                    <div class="bento-tall-card card-thoughts">
+                        <span class="thoughts-tag font-mono text-accent">THOUGHTS</span>
+                        <h4 class="thoughts-big-quote font-display">
+                            DATA-DRIVEN<br>DECISIONS<span class="text-accent">,</span><br>
+                            ELEGANTLY<br>EXPRESSED<span class="text-accent">.</span>
                         </h4>
                     </div>
 
@@ -377,40 +398,42 @@
 
     <!-- Priyansh Signature Bottom Floating Dock Navigation + Social Icons Row -->
     <nav class="bottom-dock-wrapper" id="bottom-dock">
-        <div class="dock-pill-container font-mono">
-            <a href="#top" class="dock-tab active" data-section="top">
+        <div class="dock-pill-container">
+            <a href="#top" class="dock-tab active" data-section="top" title="Home">
+                <svg class="dock-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 <span class="dock-tab-label">Home</span>
             </a>
-            <a href="#about" class="dock-tab" data-section="about">
-                <span class="dock-tab-label">About</span>
-            </a>
-            <a href="#experience" class="dock-tab" data-section="experience">
-                <span class="dock-tab-label">Experience</span>
-            </a>
-            <a href="#work" class="dock-tab" data-section="work">
+            <a href="#work" class="dock-tab" data-section="work" title="Work">
+                <svg class="dock-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                 <span class="dock-tab-label">Work</span>
             </a>
-            <a href="#contact" class="dock-tab" data-section="contact">
-                <span class="dock-tab-label">Contact</span>
+            <a href="#experience" class="dock-tab" data-section="experience" title="Experience">
+                <svg class="dock-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <span class="dock-tab-label">Experience</span>
+            </a>
+            <a href="#about" class="dock-tab" data-section="about" title="About">
+                <svg class="dock-tab-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span class="dock-tab-label">About</span>
             </a>
         </div>
         
         <!-- Image 2 Social Icon Pills Attached to Dock -->
-        <div class="dock-social-pills font-mono">
-            <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="social-circle linkedin" title="LinkedIn">in</a>
-            <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer" class="social-circle github" title="GitHub">gh</a>
-            <a href="mailto:ahmedabuzar123@gmail.com" class="social-circle email" title="Email">@</a>
-        </div>
-
-        <!-- Companion Status Pill -->
-        <div class="dock-companion-pill font-mono">
-            <span class="companion-text">MORE TO COME !</span>
+        <div class="dock-social-pills">
+            <a href="https://linkedin.com/in/ahmed-abuzar-b81a69288" target="_blank" rel="noopener noreferrer" class="social-circle linkedin" title="LinkedIn">
+                <span class="social-icon">in</span><span class="social-label">LinkedIn</span>
+            </a>
+            <a href="https://github.com/ahmedabuzar" target="_blank" rel="noopener noreferrer" class="social-circle github" title="GitHub">
+                <span class="social-icon">gh</span><span class="social-label">GitHub</span>
+            </a>
+            <a href="mailto:ahmedabuzar123@gmail.com" class="social-circle email" title="Email">
+                <span class="social-icon">@</span><span class="social-label">Email</span>
+            </a>
         </div>
     </nav>
 
     <!-- GSAP for Animations & Canvas Rendering -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=20260801c"></script>
 </body>
 </html>
