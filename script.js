@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Register GSAP ScrollTrigger
     gsap.registerPlugin(ScrollTrigger);
 
-    /* 1. Dynamic Custom Orange Cursor */
+    /* 1. Dynamic Custom Orange Cursor (desktop only) */
     const cursor = document.getElementById('custom-cursor');
-    if (cursor) {
+    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (cursor && !isTouchDevice) {
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
 
