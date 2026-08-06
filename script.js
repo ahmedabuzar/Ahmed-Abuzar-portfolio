@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function type() {
             const currentWord = words[wordIndex];
-            
+
             if (isDeleting) {
                 charIndex--;
             } else {
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             setTimeout(type, typeSpeed);
         }
-        
+
         setTimeout(type, 1500);
     }
 
@@ -166,28 +166,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function animateHeroEntrance() {
         const heroTl = gsap.timeline();
-        
+
         gsap.set('.hero-visual', { visibility: 'visible' });
-        
+
         heroTl.fromTo('.hero-avatar-badge',
             { y: 25, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }
         )
-        .fromTo('.hero-title', 
-            { y: 35, opacity: 0 },
-            { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
-            '-=0.7'
-        )
-        .fromTo(['.hero-typewriter', '.hero-desc', '.hero-slash-links', '.hero-starburst-wrapper'],
-            { y: 25, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.9, stagger: 0.08, ease: 'power3.out' },
-            '-=0.8'
-        )
-        .fromTo('.hero-visual',
-            { opacity: 0, scale: 0.96 },
-            { opacity: 1, scale: 1, duration: 1.25, ease: 'power3.out' },
-            '-=1.0'
-        );
+            .fromTo('.hero-title',
+                { y: 35, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
+                '-=0.7'
+            )
+            .fromTo(['.hero-typewriter', '.hero-desc', '.hero-slash-links', '.hero-starburst-wrapper'],
+                { y: 25, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.9, stagger: 0.08, ease: 'power3.out' },
+                '-=0.8'
+            )
+            .fromTo('.hero-visual',
+                { opacity: 0, scale: 0.96 },
+                { opacity: 1, scale: 1, duration: 1.25, ease: 'power3.out' },
+                '-=1.0'
+            );
     }
 
     if (preloader && preloaderFill) {
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* 7. GSAP ScrollTrigger Reveal Animations */
-    
+
     // Light Theme Section Slide Up Reveal
     gsap.fromTo('.light-section-card',
         { y: 60, opacity: 0.8 },
@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.remove('is-dragging');
                 if (cursor) cursor.classList.remove('grabbing-mode');
                 if (e && e.pointerId) {
-                    try { el.releasePointerCapture(e.pointerId); } catch (_) {}
+                    try { el.releasePointerCapture(e.pointerId); } catch (_) { }
                 }
             };
 
@@ -664,7 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scrollColorText && typeof ScrollTrigger !== 'undefined' && typeof gsap !== 'undefined') {
         const chars = Array.from(scrollColorText.querySelectorAll('.scroll-char'));
         const totalChars = chars.length;
-        
+
         // Train configuration
         const colorWindowSize = 9;  // 3 blue + 3 yellow + 3 red
         const fadeAheadSize = 8;    // how many chars ahead get partial fade-in
@@ -689,7 +689,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else if (distBehindFront > 0) {
                         // Inside the train — fully visible, color depends on position in train
                         char.style.opacity = '1';
-                        
+
                         // 0-3: Blue (front), 3-6: Yellow (middle), 6-9: Red (back)
                         if (distBehindFront <= 3) {
                             char.style.color = '#2060df'; // Blue
