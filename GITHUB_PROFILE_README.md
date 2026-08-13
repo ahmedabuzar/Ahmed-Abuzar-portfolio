@@ -65,10 +65,13 @@ I design digital products and analytics solutions powered by data, thoughtful in
 
 ---
 
-### 📜 Certifications & Highlights
+### 📜 Certifications & Credentials
 
-- 🏅 **Data Science & ML Internship** — Cranes Varsity (*Sentiment analysis ML models & NLP classification*)
-- 📊 **Business Operations & Workflow Automation** — Compliance tracking, CRM lead automation via Make.com & Odoo
+- 🎓 **Google Data Analytics Professional Certificate** — Google
+- 📊 **Microsoft Power BI Data Analyst Professional Certificate** — Microsoft
+- 📈 **Data Analysis and Visualization with Power BI** — Microsoft
+- 🤖 **Generative AI: Introduction and Applications** — IBM
+- 🏅 **Data Science & ML Internship** — Cranes Varsity (*Sentiment Analysis ML & NLP Classification*)
 
 ---
 
