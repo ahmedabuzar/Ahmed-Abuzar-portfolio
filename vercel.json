@@ -1,13 +1,14 @@
 {
   "redirects": [
-    { "source": "/resume.pdf", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true },
-    { "source": "/Resume.pdf", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true },
-    { "source": "/resume", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true },
-    { "source": "/Resume", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true }
+    { "source": "/resume.pdf", "destination": "/Ahmed-Abuzar-Resume-2026.pdf", "permanent": true },
+    { "source": "/Resume.pdf", "destination": "/Ahmed-Abuzar-Resume-2026.pdf", "permanent": true },
+    { "source": "/resume", "destination": "/Ahmed-Abuzar-Resume-2026.pdf", "permanent": true },
+    { "source": "/Resume", "destination": "/Ahmed-Abuzar-Resume-2026.pdf", "permanent": true },
+    { "source": "/Ahmed_Abuzar_Resume_2026.pdf", "destination": "/Ahmed-Abuzar-Resume-2026.pdf", "permanent": true }
   ],
   "headers": [
     {
-      "source": "/Ahmed%20Abuzar%20Resume%202026.pdf",
+      "source": "/Ahmed-Abuzar-Resume-2026.pdf",
       "headers": [
         {
           "key": "Content-Type",
