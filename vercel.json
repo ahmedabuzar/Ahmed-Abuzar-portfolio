@@ -1,8 +1,13 @@
 {
-  "cleanUrls": true,
+  "redirects": [
+    { "source": "/resume.pdf", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true },
+    { "source": "/Resume.pdf", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true },
+    { "source": "/resume", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true },
+    { "source": "/Resume", "destination": "/Ahmed%20Abuzar%20Resume%202026.pdf", "permanent": true }
+  ],
   "headers": [
     {
-      "source": "/resume.pdf",
+      "source": "/Ahmed%20Abuzar%20Resume%202026.pdf",
       "headers": [
         {
           "key": "Content-Type",
@@ -10,7 +15,7 @@
         },
         {
           "key": "Content-Disposition",
-          "value": "inline; filename=\"Ahmed_Abuzar_Resume.pdf\""
+          "value": "inline; filename=\"Ahmed Abuzar Resume 2026.pdf\""
         }
       ]
     }
