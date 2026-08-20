@@ -163,80 +163,90 @@
             </div>
         </section>
 
-        <!-- Selected Work / Projects Section -->
-        <section id="work" class="section dark-section">
+        <!-- Selected Work / Projects Section — Priyansh Bento Grid -->
+        <section id="work" class="section dark-section work-bento-section">
             <div class="container">
                 <div class="section-tag font-mono text-accent fade-in">SELECTED WORK</div>
                 <h2 class="section-title font-display fade-in">
                     Featured analytics case studies<span class="text-accent">.</span>
                 </h2>
+            </div>
 
-                <div class="projects-stack fade-in">
+            <!-- Full-width bento grid (no container cap) -->
+            <div class="bento-work-grid fade-in">
 
-                    <!-- Project 01 -->
-                    <div class="priyansh-project-card">
-                        <div class="card-header">
-                            <span class="card-num font-mono text-accent">01</span>
-                            <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics" target="_blank"
-                                rel="noopener noreferrer" class="visit-pill-btn font-mono">
-                                <span>VISIT</span>
-                                <span class="pill-arrow-circle">↗</span>
-                            </a>
-                        </div>
-                        <h3 class="project-title font-display">FIFA World Cup Analytics</h3>
-                        <p class="project-summary text-muted">
-                            Interactive Power BI dashboard analyzing 92 years of FIFA World Cup history, built with
-                            PostgreSQL data cleaning, relational data modeling, and custom DAX measures.
-                        </p>
-                        <div class="project-tech-tags font-mono">
-                            <span>SQL</span> · <span>PostgreSQL</span> · <span>Power BI</span> · <span>DAX</span>
+                <!-- Tile 01 — FIFA (large, spans 2 rows) -->
+                <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics"
+                    target="_blank" rel="noopener noreferrer"
+                    class="bento-tile bento-tile--large" id="bento-tile-01">
+                    <img
+                        src="https://raw.githubusercontent.com/ahmedabuzar/fifa-world-cup-analytics/main/Screenshots/dashboard_page1.png"
+                        alt="FIFA World Cup Analytics Dashboard"
+                        class="bento-tile-bg"
+                        loading="lazy"
+                    >
+                    <!-- Hover info card -->
+                    <div class="bento-info-card">
+                        <div class="bento-info-header font-mono">DATA ANALYTICS / POWER BI &nbsp; ↗</div>
+                        <h3 class="bento-info-title font-display">92 years of FIFA World Cup — a complete data story.</h3>
+                        <p class="bento-info-desc">PostgreSQL data pipeline → Power BI dashboard with DAX, relational modeling, and historical era analysis.</p>
+                        <div class="bento-info-tags font-mono">
+                            <span>SQL</span>
+                            <span>PostgreSQL</span>
+                            <span>Power BI</span>
+                            <span>DAX</span>
                         </div>
                     </div>
+                </a>
 
-                    <!-- Project 02 -->
-                    <div class="priyansh-project-card">
-                        <div class="card-header">
-                            <span class="card-num font-mono text-accent">02</span>
-                            <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis" target="_blank"
-                                rel="noopener noreferrer" class="visit-pill-btn font-mono">
-                                <span>VISIT</span>
-                                <span class="pill-arrow-circle">↗</span>
-                            </a>
-                        </div>
-                        <h3 class="project-title font-display">Marketing ROI Analysis</h3>
-                        <p class="project-summary text-muted">
-                            Excel-based marketing performance and ROI analysis dashboard analyzing spend, revenue,
-                            conversions, and campaign effectiveness across multi-channel acquisition paths.
-                        </p>
-                        <div class="project-tech-tags font-mono">
-                            <span>Excel</span> · <span>Power BI</span> · <span>Pivot Tables</span> · <span>DAX</span>
+                <!-- Tile 02 — Marketing ROI (medium) -->
+                <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis"
+                    target="_blank" rel="noopener noreferrer"
+                    class="bento-tile bento-tile--medium" id="bento-tile-02">
+                    <img
+                        src="https://raw.githubusercontent.com/ahmedabuzar/Marketing-Performance-ROI-Analysis/main/screenshots/Dashboard.png"
+                        alt="Marketing ROI Analysis Dashboard"
+                        class="bento-tile-bg"
+                        loading="lazy"
+                    >
+                    <div class="bento-info-card">
+                        <div class="bento-info-header font-mono">EXCEL / PIVOT TABLES &nbsp; ↗</div>
+                        <h3 class="bento-info-title font-display">Marketing ROI Analysis</h3>
+                        <p class="bento-info-desc">Multi-channel ROI dashboard with spend, revenue, and conversion tracking across Google, Meta &amp; Email.</p>
+                        <div class="bento-info-tags font-mono">
+                            <span>Excel</span>
+                            <span>Power BI</span>
+                            <span>DAX</span>
                         </div>
                     </div>
+                </a>
 
-                    <!-- Project 03 -->
-                    <div class="priyansh-project-card">
-                        <div class="card-header">
-                            <span class="card-num font-mono text-accent">03</span>
-                            <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator"
-                                target="_blank" rel="noopener noreferrer" class="visit-pill-btn font-mono">
-                                <span>VISIT</span>
-                                <span class="pill-arrow-circle">↗</span>
-                            </a>
-                        </div>
-                        <h3 class="project-title font-display">Budget Optimization Simulator</h3>
-                        <p class="project-summary text-muted">
-                            Power BI analytics dashboard featuring what-if budget allocation simulation, enabling
-                            stakeholders to model marketing spend adjustments and forecast revenue outcomes.
-                        </p>
-                        <div class="project-tech-tags font-mono">
-                            <span>Power BI</span> · <span>Power Query</span> · <span>DAX</span> · <span>Scenario
-                                Modeling</span>
+                <!-- Tile 03 — Budget Simulator (medium) -->
+                <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator"
+                    target="_blank" rel="noopener noreferrer"
+                    class="bento-tile bento-tile--medium" id="bento-tile-03">
+                    <img
+                        src="https://raw.githubusercontent.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator/main/Screenshots/Dashboard_Overview.png"
+                        alt="Budget Optimization Simulator Dashboard"
+                        class="bento-tile-bg"
+                        loading="lazy"
+                    >
+                    <div class="bento-info-card">
+                        <div class="bento-info-header font-mono">POWER BI / WHAT-IF &nbsp; ↗</div>
+                        <h3 class="bento-info-title font-display">Budget Optimization Simulator</h3>
+                        <p class="bento-info-desc">What-if parameter dashboard — model marketing spend shifts and forecast revenue outcomes in real time.</p>
+                        <div class="bento-info-tags font-mono">
+                            <span>Power BI</span>
+                            <span>Power Query</span>
+                            <span>Scenario Modeling</span>
                         </div>
                     </div>
+                </a>
 
-                </div>
             </div>
         </section>
+
+
 
         <!-- Experience Section (Dark Obsidian Theme) -->
         <section id="experience" class="section dark-section">
@@ -488,20 +498,45 @@
                         </div>
                     </div>
 
-                    <!-- Card 2: Case Study Showcase with image area -->
-                    <div class="bento-tall-card card-showcase">
-                        <div class="showcase-img-area">
-                            <div class="showcase-placeholder">
-                                <span class="font-mono text-accent text-xs">FEATURED PROJECT</span>
-                                <h4 class="font-display showcase-project-name">Marketing ROI<br>Analytics</h4>
-                                <p class="font-mono text-xs text-muted" style="margin-top: 0.5rem;">Power BI · Excel ·
-                                    DAX</p>
+                    <!-- Card 2: Simple Text Auto-Rotating Case Study Showcase -->
+                    <div class="bento-tall-card card-showcase" id="footer-project-showcase">
+                        <div class="showcase-slider">
+                            <!-- Slide 1: FIFA World Cup Analytics -->
+                            <div class="showcase-slide active" data-index="0">
+                                <a href="https://github.com/ahmedabuzar/fifa-world-cup-analytics" target="_blank"
+                                    rel="noopener noreferrer" class="showcase-simple-link">
+                                    <span class="font-mono text-accent text-xs">FEATURED PROJECT</span>
+                                    <h4 class="font-display showcase-project-name">FIFA World Cup<br>Analytics</h4>
+                                    <p class="font-mono text-xs text-muted" style="margin-top: 0.5rem;">SQL · PostgreSQL · Power BI · DAX</p>
+                                </a>
+                            </div>
+
+                            <!-- Slide 2: Marketing ROI Analysis -->
+                            <div class="showcase-slide" data-index="1">
+                                <a href="https://github.com/ahmedabuzar/Marketing-Performance-ROI-Analysis" target="_blank"
+                                    rel="noopener noreferrer" class="showcase-simple-link">
+                                    <span class="font-mono text-accent text-xs">FEATURED PROJECT</span>
+                                    <h4 class="font-display showcase-project-name">Marketing ROI<br>Analysis</h4>
+                                    <p class="font-mono text-xs text-muted" style="margin-top: 0.5rem;">Excel · Power BI · Pivot Tables · DAX</p>
+                                </a>
+                            </div>
+
+                            <!-- Slide 3: Budget Optimization Simulator -->
+                            <div class="showcase-slide" data-index="2">
+                                <a href="https://github.com/ahmedabuzar/Marketing-Budget-Optimization-ROI-Simulator" target="_blank"
+                                    rel="noopener noreferrer" class="showcase-simple-link">
+                                    <span class="font-mono text-accent text-xs">FEATURED PROJECT</span>
+                                    <h4 class="font-display showcase-project-name">Budget Optimization<br>Simulator</h4>
+                                    <p class="font-mono text-xs text-muted" style="margin-top: 0.5rem;">Power BI · Power Query · DAX · Scenario</p>
+                                </a>
                             </div>
                         </div>
+
+                        <!-- Minimal 3-dot pagination indicators -->
                         <div class="showcase-carousel-dots">
-                            <span class="cdot active"></span>
-                            <span class="cdot"></span>
-                            <span class="cdot"></span>
+                            <span class="cdot active" data-target="0"></span>
+                            <span class="cdot" data-target="1"></span>
+                            <span class="cdot" data-target="2"></span>
                         </div>
                     </div>
 

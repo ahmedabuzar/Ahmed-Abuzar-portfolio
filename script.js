@@ -712,4 +712,84 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    /* 11. Interactive Featured Project Showcase Carousel (Footer Bento) */
+    const showcaseContainer = document.getElementById('footer-project-showcase');
+    if (showcaseContainer) {
+        const slides = showcaseContainer.querySelectorAll('.showcase-slide');
+        const dots = showcaseContainer.querySelectorAll('.showcase-carousel-dots .cdot');
+        const prevBtn = showcaseContainer.querySelector('.showcase-prev');
+        const nextBtn = showcaseContainer.querySelector('.showcase-next');
+        let currentIndex = 0;
+        let autoplayTimer = null;
+        const autoInterval = 3600; // 3.6 seconds per project slide
+
+        function goToSlide(index) {
+            if (index < 0) index = slides.length - 1;
+            if (index >= slides.length) index = 0;
+            currentIndex = index;
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentIndex);
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayTimer = setInterval(nextSlide, autoInterval);
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        }
+
+        // Dot click interactions
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                goToSlide(idx);
+                startAutoplay();
+            });
+        });
+
+        // Prev / Next button interactions
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                prevSlide();
+                startAutoplay();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                nextSlide();
+                startAutoplay();
+            });
+        }
+
+        // Pause autoplay on card hover, resume on mouse leave
+        showcaseContainer.addEventListener('mouseenter', stopAutoplay);
+        showcaseContainer.addEventListener('mouseleave', startAutoplay);
+
+        // Start autoplay
+        startAutoplay();
+    }
 });
+
