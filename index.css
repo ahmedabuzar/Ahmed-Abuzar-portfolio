@@ -1566,83 +1566,564 @@ a {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-/* Responsive Breakpoints */
+/* ══════════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤ 900px) ──────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .hero-title {
-    font-size: 2.1rem;
+
+  /* Top bar */
+  .top-bar {
+    padding: 1rem 1.25rem;
   }
 
-  .scroll-reveal-title {
-    font-size: 1.55rem;
-    margin-bottom: 2rem;
+  .brand-logo {
+    font-size: 1.3rem;
+  }
+
+  .top-bar-meta {
+    font-size: 0.85rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 7rem;
+    padding-bottom: 3rem;
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subheading {
+    font-size: 1.35rem;
+  }
+
+  .hero-builds-typewriter {
+    font-size: 0.82rem;
+  }
+
+  .hero-desc {
+    font-size: 0.82rem;
+    max-width: 95%;
+  }
+
+  .hero-slash-links {
+    font-size: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .profile-avatar-circle {
+    width: 115px;
+    height: 115px;
+  }
+
+  /* Light theme section */
+  .light-section-card {
+    padding: 4rem 0 0 0;
+    border-radius: 28px 28px 0 0;
   }
 
   .light-heading {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
+  .light-lead {
+    font-size: 1.05rem;
+  }
+
+  .light-body {
+    font-size: 0.92rem;
+  }
+
+  /* Stats grid → 2 cols */
   .bento-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
+  .bento-number {
+    font-size: 2rem;
+  }
+
+  /* Bento Work Grid → single column */
+  .bento-work-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 12px;
+    padding: 1rem;
+  }
+
+  #bento-tile-01 {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 280px;
+  }
+
+  #bento-tile-02,
+  #bento-tile-03 {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 240px;
+  }
+
+  .bento-info-card {
+    max-width: 100%;
+  }
+
+  /* Selected Work section */
+  .work-bento-section {
+    padding-top: 4rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .dark-section {
+    padding: 4rem 0;
+  }
+
+  /* Experience cards */
+  .experience-card {
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
+
+  .exp-company {
+    font-size: 1.2rem;
+  }
+
+  /* Pixel dissolve */
+  .pixel-dissolve-container {
+    height: 350px;
+  }
+
+  /* Physics sandbox */
+  #physics-sandbox {
+    height: 160px;
+  }
+
+  .tool-icon-square {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+  }
+
+  .status-pill-orange {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.78rem;
+  }
+
+  /* About Me footer section */
+  .scroll-reveal-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 95%;
+  }
+
+  .narrative-lead {
+    font-size: 0.95rem;
+  }
+
+  .narrative-body {
+    font-size: 0.88rem;
+  }
+
+  /* Footer bento 3-col → single column */
   .bento-grid-3col {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .bento-tall-card {
     min-height: 180px;
   }
 
-  .dock-companion-pill,
+  /* Bottom dock */
+  .dock-companion-pill {
+    display: none;
+  }
+
   .dock-social-pills {
     display: none;
   }
 
-  .tool-row {
-    gap: 0.6rem;
+  .dock-pill-container {
+    gap: 0.25rem;
   }
 
-  .tool-icon-square {
-    width: 50px;
-    height: 50px;
-    border-radius: 14px;
+  /* Social connect button */
+  .social-connect-btn {
+    width: 12em;
+    height: 3.5em;
   }
 
-  .status-pill-orange {
-    padding: 0.55rem 1.1rem;
-    font-size: 0.8rem;
-  }
-
-  .brand-logo {
-    font-size: 1.4rem;
-  }
-
-  .top-bar-meta {
-    font-size: 0.9rem;
+  .social-connect-btn span {
+    width: 9em;
+    height: 2.5em;
+    font-size: 14px;
   }
 }
 
-@media (max-width: 500px) {
-  .hero-title {
-    font-size: 1.8rem;
-  }
+/* ── Phone (≤ 600px) ───────────────────────────────────────────── */
+@media (max-width: 600px) {
 
-  .scroll-reveal-title {
-    font-size: 1.25rem;
-  }
-
-  .dock-tab {
-    padding: 0.4rem 0.65rem;
-    font-size: 0.72rem;
+  /* Top bar */
+  .top-bar {
+    padding: 0.75rem 1rem;
   }
 
   .brand-logo {
     font-size: 1.15rem;
+    gap: 0.4rem;
+  }
+
+  .brand-logo-img {
+    width: 24px;
+    height: 24px;
   }
 
   .top-bar-meta {
+    font-size: 0.72rem;
+    gap: 0.35rem;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: 5.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .hero-content-center {
+    padding: 0 0.75rem;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .hero-subheading {
+    font-size: 1.15rem;
+  }
+
+  .hero-subtitle-box {
+    margin-bottom: 1rem;
+  }
+
+  .hero-builds-typewriter {
+    font-size: 0.72rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .hero-desc {
+    font-size: 0.78rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    padding: 0 0.25rem;
+  }
+
+  .hero-slash-links {
+    font-size: 0.7rem;
+    gap: 0.35rem 0.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-avatar-circle {
+    width: 100px;
+    height: 100px;
+    padding: 4px;
+  }
+
+  .hero-avatar-wrapper {
+    margin-bottom: 1.25rem;
+  }
+
+  .explore-work-link {
     font-size: 0.75rem;
+  }
+
+  /* Container */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Light section */
+  .light-section-card {
+    padding: 3rem 0 0 0;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .section-tag {
+    font-size: 0.68rem;
+  }
+
+  .light-heading {
+    font-size: 1.65rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .light-lead {
+    font-size: 0.92rem;
+  }
+
+  .light-body {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .black-action-pill {
+    font-size: 0.72rem;
+    padding: 0.6rem 1.1rem;
+  }
+
+  /* Stats grid → 2 cols tighter */
+  .bento-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .bento-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .bento-number {
+    font-size: 1.75rem;
+  }
+
+  .bento-label {
+    font-size: 0.62rem;
+  }
+
+  /* Tech pills */
+  .tech-pills-container {
+    gap: 0.45rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tech-pill {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.72rem;
+  }
+
+  /* Pixel dissolve */
+  .pixel-dissolve-container {
+    height: 250px;
+    padding-bottom: 2rem;
+  }
+
+  .cyan-retro-badge {
+    padding: 0.45rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .cyan-code {
+    font-size: 1rem;
+  }
+
+  .cyan-text {
+    font-size: 0.7rem;
+  }
+
+  /* Dark sections */
+  .dark-section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Bento work grid */
+  .bento-work-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 0.75rem;
+  }
+
+  #bento-tile-01 {
+    min-height: 220px;
+  }
+
+  #bento-tile-02,
+  #bento-tile-03 {
+    min-height: 200px;
+  }
+
+  .bento-info-card {
+    top: 0.75rem;
+    left: 0.75rem;
+    width: calc(100% - 1.5rem);
+    padding: 0.85rem 1rem;
+  }
+
+  .bento-info-title {
+    font-size: 0.92rem;
+  }
+
+  .bento-info-desc {
+    font-size: 0.72rem;
+  }
+
+  .bento-info-tags span {
+    font-size: 0.58rem;
+    padding: 0.15rem 0.5rem;
+  }
+
+  /* Experience cards */
+  .experience-stack {
+    gap: 1rem;
+  }
+
+  .experience-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+  }
+
+  .exp-top {
+    flex-direction: column;
     gap: 0.4rem;
+  }
+
+  .exp-company {
+    font-size: 1.1rem;
+  }
+
+  .exp-role {
+    font-size: 0.85rem;
+  }
+
+  .exp-date {
+    font-size: 0.7rem;
+  }
+
+  .exp-description {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .exp-tags {
+    font-size: 0.7rem;
+  }
+
+  /* Physics sandbox */
+  #physics-sandbox {
+    height: 130px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .tool-icon-square {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+
+  .status-pill-orange {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.72rem;
+  }
+
+  /* About me footer */
+  .aboutme-footer-section {
+    padding-bottom: 7rem;
+  }
+
+  .scroll-reveal-title {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .aboutme-narrative {
+    margin-bottom: 2.5rem;
+  }
+
+  .narrative-lead {
+    font-size: 0.85rem;
+  }
+
+  .narrative-body {
+    font-size: 0.82rem;
+  }
+
+  /* Footer bento */
+  .bento-grid-3col {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .bento-tall-card {
+    min-height: 160px;
+    padding: 1.5rem;
+    border-radius: 18px;
+  }
+
+  .showcase-project-name {
+    font-size: 1.25rem;
+  }
+
+  .thoughts-big-quote {
+    font-size: 1.1rem;
+  }
+
+  /* Footer */
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    font-size: 0.72rem;
+  }
+
+  /* Bottom dock */
+  .bottom-dock-wrapper {
+    padding: 0 0.5rem 0.75rem;
+  }
+
+  .dock-pill-container {
+    padding: 0.3rem;
+    gap: 0.15rem;
+    border-radius: 20px;
+  }
+
+  .dock-tab {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.68rem;
+    border-radius: 14px;
+  }
+
+  .dock-tab-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .dock-tab-label {
+    font-size: 0.62rem;
+  }
+
+  .dock-tab.active {
+    padding: 0.35rem 0.7rem;
+  }
+
+  /* Social connect */
+  .social-connect-btn {
+    width: 11em;
+    height: 3em;
+  }
+
+  .social-connect-btn span {
+    width: 8em;
+    height: 2.2em;
+    font-size: 12px;
+    letter-spacing: 2px;
   }
 }
 
