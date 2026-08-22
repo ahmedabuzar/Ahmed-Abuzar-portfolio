@@ -167,9 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function animateHeroEntrance() {
         const heroTl = gsap.timeline();
 
-        gsap.set('.hero-visual', { visibility: 'visible' });
-
-        heroTl.fromTo('.hero-avatar-badge',
+        heroTl.fromTo('.hero-avatar-wrapper',
             { y: 25, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' }
         )
@@ -178,15 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 { y: 0, opacity: 1, duration: 1.1, ease: 'power3.out' },
                 '-=0.7'
             )
-            .fromTo(['.hero-typewriter', '.hero-desc', '.hero-slash-links', '.hero-starburst-wrapper'],
+            .fromTo(['.hero-subtitle-box', '.hero-desc', '.hero-slash-links', '.hero-explore-wrapper'],
                 { y: 25, opacity: 0 },
                 { y: 0, opacity: 1, duration: 0.9, stagger: 0.08, ease: 'power3.out' },
                 '-=0.8'
-            )
-            .fromTo('.hero-visual',
-                { opacity: 0, scale: 0.96 },
-                { opacity: 1, scale: 1, duration: 1.25, ease: 'power3.out' },
-                '-=1.0'
             );
     }
 
@@ -365,6 +358,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         );
     });
+
+    /* Scroll-reveal for bento tiles and experience cards — staggered IntersectionObserver */
+    const revealElements = document.querySelectorAll('.scroll-reveal-tile, .scroll-reveal-card');
+    if (revealElements.length) {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // Stagger the reveal based on data attribute or position
+                    const delay = entry.target.dataset.revealDelay || 0;
+                    setTimeout(() => {
+                        entry.target.classList.add('revealed');
+                    }, delay);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach((el, index) => {
+            el.dataset.revealDelay = index * 120; // 120ms stagger between each
+            revealObserver.observe(el);
+        });
+    }
 
     /* 8. Priyansh Signature Bottom Dock Active Section Highlighting & Click Navigation */
     const dockTabs = document.querySelectorAll('.dock-tab');
@@ -720,9 +735,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const dots = showcaseContainer.querySelectorAll('.showcase-carousel-dots .cdot');
         const prevBtn = showcaseContainer.querySelector('.showcase-prev');
         const nextBtn = showcaseContainer.querySelector('.showcase-next');
+        const progressFill = showcaseContainer.querySelector('.showcase-progress-fill');
         let currentIndex = 0;
         let autoplayTimer = null;
         const autoInterval = 3600; // 3.6 seconds per project slide
+
+        function resetProgressBar() {
+            if (!progressFill) return;
+            progressFill.style.animation = 'none';
+            // Force reflow to restart animation
+            void progressFill.offsetHeight;
+            progressFill.style.animation = `showcase-progress ${autoInterval}ms linear infinite`;
+        }
 
         function goToSlide(index) {
             if (index < 0) index = slides.length - 1;
@@ -736,6 +760,8 @@ document.addEventListener('DOMContentLoaded', () => {
             dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === currentIndex);
             });
+
+            resetProgressBar();
         }
 
         function nextSlide() {
@@ -749,12 +775,16 @@ document.addEventListener('DOMContentLoaded', () => {
         function startAutoplay() {
             stopAutoplay();
             autoplayTimer = setInterval(nextSlide, autoInterval);
+            resetProgressBar();
         }
 
         function stopAutoplay() {
             if (autoplayTimer) {
                 clearInterval(autoplayTimer);
                 autoplayTimer = null;
+            }
+            if (progressFill) {
+                progressFill.style.animationPlayState = 'paused';
             }
         }
 

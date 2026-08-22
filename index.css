@@ -803,6 +803,24 @@ a {
 .dark-section {
   padding: 7.5rem 0;
   background-color: var(--bg-black);
+  position: relative;
+}
+
+/* Subtle noise/grain texture overlay for premium editorial feel */
+.dark-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+
+.dark-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-title {
@@ -929,6 +947,54 @@ a {
   text-decoration: none;
   background: #111118;
   cursor: pointer;
+}
+
+/* Gradient glow effect behind tiles — using box-shadow (child div gets clipped by overflow:hidden) */
+.bento-tile-glow {
+  display: none; /* Glow handled via box-shadow on parent instead */
+}
+
+.bento-tile {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.bento-tile:hover {
+  box-shadow: 0 0 30px rgba(232, 93, 42, 0.35), 0 0 60px rgba(232, 93, 42, 0.15), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Scroll-reveal animation classes */
+.scroll-reveal-tile {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  animation: fallback-reveal 0s 1.5s forwards; /* CSS fallback if JS doesn't fire */
+}
+
+.scroll-reveal-tile.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: none; /* Cancel fallback when JS handles it */
+}
+
+.scroll-reveal-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fallback-reveal 0s 1.5s forwards;
+}
+
+.scroll-reveal-card.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: none;
+}
+
+@keyframes fallback-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* Background image — fills entire tile */
@@ -1346,8 +1412,62 @@ a {
   width: 32px;
 }
 
+/* Carousel navigation row */
+.showcase-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem 0.5rem;
+}
 
+.showcase-prev,
+.showcase-next {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-family: var(--font-mono);
+}
 
+.showcase-prev:hover,
+.showcase-next:hover {
+  background: var(--accent-orange);
+  border-color: var(--accent-orange);
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+/* Progress bar */
+.showcase-progress-track {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0 0 24px 24px;
+  overflow: hidden;
+}
+
+.showcase-progress-fill {
+  height: 100%;
+  width: 33.33%;
+  background: linear-gradient(90deg, var(--accent-orange), #ff7040);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  animation: showcase-progress 3.6s linear infinite;
+}
+
+@keyframes showcase-progress {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
 /* Card 3: Thoughts Quote */
 .card-thoughts {
   justify-content: center;
