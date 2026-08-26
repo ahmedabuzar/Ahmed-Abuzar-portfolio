@@ -137,7 +137,7 @@ body:hover .custom-cursor {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1c1c24;
+  background: var(--accent-orange);
   border-radius: 3px;
 }
 
@@ -1492,6 +1492,65 @@ a {
   letter-spacing: -0.01em;
 }
 
+/* ── Let's Connect CTA ─────────────────────────────────────────── */
+.connect-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 4rem;
+  padding: 3.5rem 2rem;
+  border-radius: 24px;
+  background: #0d0d12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.connect-tag {
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: var(--accent-orange);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.connect-heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-white);
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.connect-subtext {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 420px;
+  margin-bottom: 2rem;
+}
+
+.connect-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.2rem;
+  background: var(--accent-orange);
+  color: #fff;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(232, 93, 42, 0.25);
+}
+
+.connect-pill:hover {
+  background: #ff7040;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(232, 93, 42, 0.45);
+}
+
 /* Footer */
 .footer {
   padding: 2.5rem 0 7rem 0;
@@ -1865,6 +1924,15 @@ a {
     min-height: 180px;
   }
 
+  .connect-cta {
+    margin-top: 2.5rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .connect-heading {
+    font-size: 1.8rem;
+  }
+
   /* Bottom dock */
   .dock-companion-pill {
     display: none;
@@ -2187,6 +2255,25 @@ a {
     min-height: 160px;
     padding: 1.5rem;
     border-radius: 18px;
+  }
+
+  .connect-cta {
+    margin-top: 2rem;
+    padding: 2rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .connect-heading {
+    font-size: 1.5rem;
+  }
+
+  .connect-subtext {
+    font-size: 0.88rem;
+  }
+
+  .connect-pill {
+    padding: 0.75rem 1.8rem;
+    font-size: 0.75rem;
   }
 
   .showcase-project-name {
