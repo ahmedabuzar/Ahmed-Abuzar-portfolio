@@ -1,0 +1,67 @@
+"""
+Coding Exercise: Decoding a Secret Message
+
+Fetches a published Google Doc containing a table of
+(x-coordinate, Unicode character, y-coordinate) rows, then prints
+the grid of characters that forms a readable message when displayed
+in a fixed-width font.
+
+Origin (0, 0) is the top-left corner, x increases right, y increases
+downward -- matching the orientation of the example 'F' in the prompt.
+"""
+
+import re
+import requests
+from bs4 import BeautifulSoup
+
+
+def print_secret_message(doc_url: str) -> None:
+    rows = _fetch_grid_data(doc_url)
+    if not rows:
+        print("(no data found)")
+        return
+
+    max_x = max(x for x, _, _ in rows)
+    max_y = max(y for _, _, y in rows)
+
+    grid = [[" "] * (max_x + 1) for _ in range(max_y + 1)]
+    for x, char, y in rows:
+        grid[y][x] = char
+
+    for row in grid:
+        print("".join(row))
+
+
+def _fetch_grid_data(doc_url: str):
+    response = requests.get(doc_url, timeout=30)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "html.parser")
+    table = soup.find("table")
+
+    rows = []
+    if table is not None:
+        for tr in table.find_all("tr")[1:]:          # skip header row
+            cells = tr.find_all(["td", "th"])
+            if len(cells) < 3:
+                continue
+            x_text = cells[0].get_text(strip=True)
+            char_text = cells[1].get_text()
+            y_text = cells[2].get_text(strip=True)
+            if not x_text.isdigit() or not y_text.isdigit():
+                continue
+            char = next((c for c in char_text if not c.isspace()), " ")
+            rows.append((int(x_text), char, int(y_text)))
+    else:
+        # fallback for a plain-text doc
+        for line in soup.get_text("\n").splitlines():
+            parts = re.split(r"\s+", line.strip())
+            if len(parts) == 3 and parts[0].isdigit() and parts[2].isdigit():
+                rows.append((int(parts[0]), parts[1], int(parts[2])))
+    return rows
+
+
+if __name__ == "__main__":
+    print_secret_message(
+        "https://docs.google.com/document/d/e/"
+        "2PACX-1vTMOmshQe8YvaRXi6gEPKKlsC6UpFJSMAk4mQjLm_u1gmHdVVTaeh7nBNFBRlui0sTZ-snGwZM4DBCT/pub"
+    )

@@ -73,7 +73,8 @@ textarea {
   pointer-events: none;
   z-index: 10000;
   transform: translate(-50%, -50%);
-  transition: transform 0.08s ease-out, opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  will-change: left, top;
 }
 
 .custom-cursor .cursor-hand {
@@ -1492,6 +1493,98 @@ a {
   letter-spacing: -0.01em;
 }
 
+/* ==========================================================================
+   Certifications Section (4-Card Row per User Reference)
+   ========================================================================== */
+.certifications-section {
+  margin-top: 4.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.certifications-heading {
+  font-size: clamp(2rem, 3.8vw, 2.85rem);
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-white, #ffffff);
+  letter-spacing: -0.02em;
+  margin-bottom: 2.75rem;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.cert-card {
+  background: #0d0d12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 2.5rem 1.4rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              background 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  will-change: transform;
+  contain: paint;
+}
+
+.cert-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(232, 93, 42, 0.45);
+  background: #111118;
+  box-shadow: 0 16px 36px -12px rgba(232, 93, 42, 0.18), 0 0 0 1px rgba(232, 93, 42, 0.25);
+}
+
+.cert-card-logo,
+.cert-card-title,
+.cert-card-issuer,
+.cert-card svg,
+.cert-card path {
+  pointer-events: none;
+}
+
+.cert-card-logo {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: transform 0.25s ease;
+}
+
+.cert-card:hover .cert-card-logo {
+  transform: scale(1.1);
+}
+
+.cert-card-title {
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.42;
+  color: #f5f5f7;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.85rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-card-issuer {
+  font-size: 0.82rem;
+  color: #8b8b99;
+  letter-spacing: 0.02em;
+  margin-top: auto;
+}
+
 /* ── Let's Connect CTA ─────────────────────────────────────────── */
 .connect-cta {
   display: flex;
@@ -1914,6 +2007,16 @@ a {
     font-size: 1.05rem;
   }
 
+  /* Certifications grid → 2 columns on tablet */
+  .certifications-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .cert-card {
+    padding: 2rem 1.25rem 1.75rem;
+  }
+
   /* Footer bento 3-col → single column */
   .bento-grid-3col {
     grid-template-columns: 1fr;
@@ -2243,6 +2346,25 @@ a {
 
   .narrative-body {
     font-size: 0.95rem;
+  }
+
+  /* Certifications grid → single column on mobile */
+  .certifications-section {
+    margin-top: 3.5rem;
+  }
+
+  .certifications-heading {
+    margin-bottom: 1.75rem;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  .cert-card {
+    padding: 1.75rem 1.25rem 1.5rem;
+    border-radius: 18px;
   }
 
   /* Footer bento */

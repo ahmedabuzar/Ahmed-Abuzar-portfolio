@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
             mouseX = e.clientX;
             mouseY = e.clientY;
         };
-        window.addEventListener('mousemove', updateMousePos);
-        window.addEventListener('pointermove', updateMousePos);
+        window.addEventListener('pointermove', updateMousePos, { passive: true });
+        window.addEventListener('mousemove', updateMousePos, { passive: true });
 
         function animateCursor() {
-            cursorX += (mouseX - cursorX) * 0.45;
-            cursorY += (mouseY - cursorY) * 0.45;
+            cursorX += (mouseX - cursorX) * 0.82;
+            cursorY += (mouseY - cursorY) * 0.82;
             cursor.style.left = `${cursorX}px`;
             cursor.style.top = `${cursorY}px`;
             requestAnimationFrame(animateCursor);
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Add hover effect for interactive elements (shows pointing hand outline & shifts color)
-        const interactiveSelectors = 'a, button, .physics-item, .dock-tab, .social-circle, .bento-card, .tool-icon-square, .status-pill-orange, .priyansh-project-card, .black-action-pill, .cyan-retro-badge, .bento-tall-card, .profile-avatar-circle, .explore-work-link';
+        const interactiveSelectors = 'a, button, .physics-item, .dock-tab, .social-circle, .bento-card, .tool-icon-square, .status-pill-orange, .priyansh-project-card, .black-action-pill, .cyan-retro-badge, .cert-card, .profile-avatar-circle, .explore-work-link';
         document.querySelectorAll(interactiveSelectors).forEach(el => {
             el.addEventListener('mouseenter', () => {
                 cursor.classList.add('hovering');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!color && el.getAttribute('title')) {
                     color = logoColorMap[el.getAttribute('title').toLowerCase()] || null;
                 }
-                if (!color && el.textContent) {
+                if (!color && el.textContent && !el.classList.contains('cert-card')) {
                     color = logoColorMap[el.textContent.trim().toLowerCase()] || null;
                 }
                 if (color) {
@@ -60,6 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (hand) hand.style.stroke = color;
                     cursor.style.filter = `drop-shadow(0 0 8px ${color})`;
                     cursor.dataset.activeColor = color;
+                } else {
+                    const arrow = cursor.querySelector('.cursor-arrow');
+                    const hand = cursor.querySelector('.cursor-hand');
+                    if (arrow) arrow.style.fill = '#e85d2a';
+                    if (hand) hand.style.stroke = '#e85d2a';
+                    cursor.style.filter = 'drop-shadow(0 0 8px #e85d2a)';
                 }
             });
             el.addEventListener('mouseleave', () => {
@@ -69,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const arrow = cursor.querySelector('.cursor-arrow');
                 const hand = cursor.querySelector('.cursor-hand');
                 if (arrow) arrow.style.fill = '#e85d2a';
-                if (hand) hand.style.stroke = '#ff2a2a';
+                if (hand) hand.style.stroke = '#e85d2a';
                 cursor.style.filter = '';
                 delete cursor.dataset.activeColor;
             });
@@ -556,6 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (e && e.pointerId) {
                     try { el.releasePointerCapture(e.pointerId); } catch (_) { }
                 }
+                wakePhysics();
             };
 
             el.addEventListener('pointerup', endDrag);
@@ -564,14 +571,34 @@ document.addEventListener('DOMContentLoaded', () => {
             items.push(item);
         });
 
-        // 60FPS 2D Rotating Physics Simulation Loop
+        let currentW = sandbox.clientWidth || 800;
+        let currentH = sandbox.clientHeight || 270;
+        window.addEventListener('resize', () => {
+            currentW = sandbox.clientWidth || 800;
+            currentH = sandbox.clientHeight || 270;
+            wakePhysics();
+        }, { passive: true });
+
+        let physicsRunning = false;
+        function wakePhysics() {
+            if (!physicsRunning) {
+                physicsRunning = true;
+                requestAnimationFrame(runPhysics);
+            }
+        }
+
+        sandbox.addEventListener('pointerenter', wakePhysics, { passive: true });
+
+        // High-performance Physics Simulation Loop with auto-sleep
         function runPhysics() {
-            const currentW = sandbox.clientWidth || 800;
-            const currentH = sandbox.clientHeight || 270;
+            let anyMoving = false;
 
             for (let i = 0; i < items.length; i++) {
                 const p = items[i];
-                if (p.isDragging) continue;
+                if (p.isDragging) {
+                    anyMoving = true;
+                    continue;
+                }
 
                 // Constant downward gravity so icons always fall down and land on the bottom floor
                 p.vy += 0.55;
@@ -590,7 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (Math.abs(p.vy) < 0.04) p.vy = 0;
                 if (Math.abs(p.va) < 0.04) p.va = 0;
 
-                // Wall & floor bouncing collisions with spin deflection (can land upside down or any how!)
+                // Wall & floor bouncing collisions with spin deflection
                 if (p.x <= 0) {
                     p.x = 0;
                     p.vx = -p.vx * 0.75;
@@ -607,12 +634,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     p.vy = -p.vy * 0.75;
                     p.va += p.vx * 0.2;
                 } else if (p.y >= floorY) {
-                    // Land down on the floor without sinking in!
                     p.y = floorY;
                     p.vy = -p.vy * 0.58;
-                    p.vx *= 0.88; // Floor friction slows horizontal sliding
-                    p.va *= 0.88; // Floor friction slows rotation
-                    if (Math.abs(p.vy) < 0.8) p.vy = 0; // Rest peacefully on the floor in whatever orientation it landed!
+                    p.vx *= 0.88;
+                    p.va *= 0.88;
+                    if (Math.abs(p.vy) < 0.8) p.vy = 0;
+                }
+
+                if (p.vx !== 0 || p.vy !== 0 || p.va !== 0) {
+                    anyMoving = true;
                 }
 
                 // Simple elastic collision between items with angular spin transfer
@@ -651,9 +681,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             p2.vx += impulse * nx;
                             p2.vy += impulse * ny;
 
-                            // Transfer spin on collision
                             p.va += impulse * 1.5;
                             p2.va -= impulse * 1.5;
+                            anyMoving = true;
                         }
                     }
                 }
@@ -661,10 +691,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 p.el.style.transform = `translate3d(${p.x}px, ${p.y}px, 0) rotate(${p.angle}deg)`;
             }
 
-            requestAnimationFrame(runPhysics);
+            if (anyMoving) {
+                requestAnimationFrame(runPhysics);
+            } else {
+                physicsRunning = false;
+            }
         }
 
-        requestAnimationFrame(runPhysics);
+        wakePhysics();
     }
 
     /* 10. Scroll Character Reveal — Priyansh-style moving color train
